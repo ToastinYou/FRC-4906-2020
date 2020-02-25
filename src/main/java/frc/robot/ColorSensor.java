@@ -40,7 +40,7 @@ public class ColorSensor {
 	private static final Color kYellowTarget = ColorMatch.makeColor(0.361, 0.524, 0.113);
 
 	public static void Initialize() {
-		Map.ColorMotorController.restoreFactoryDefaults();
+		Constants.ColorMotorController.restoreFactoryDefaults();
 
 		m_colorMatcher.addColorMatch(kBlueTarget);
 		m_colorMatcher.addColorMatch(kGreenTarget);
@@ -49,7 +49,7 @@ public class ColorSensor {
 	}
 
 	public static void MotorSet(double speed) {
-		Map.ColorMotorController.set(speed);
+		Constants.ColorMotorController.set(speed);
 	}
 
 	public static enum Colors {
