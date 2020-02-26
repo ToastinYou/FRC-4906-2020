@@ -22,12 +22,25 @@ import edu.wpi.first.wpilibj.XboxController;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    public static XboxController XboxControl = new XboxController(0);
+	public static XboxController XboxControl = new XboxController(0);
+	public static double XboxLY() {
+		return XboxControl.getRawAxis(1);
+	}
+	public static double XboxRY() {
+		return XboxControl.getRawAxis(5);
+	}
+
     public static Joystick JoystickControl = new Joystick(1);
+	public static double JoystickY() {
+		return XboxControl.getRawAxis(1);
+	}
+	public static double JoystickZ() {
+		return XboxControl.getRawAxis(2);
+	}
     
 	public static CANSparkMax ColorMotorController = new CANSparkMax(6, MotorType.kBrushless);
 
-	/*public static int CAN0 = 0;	
+	public static int CAN0 = 0;	
 	public static int CAN1 = 1;
 	public static int CAN2 = 2;
 	public static int CAN3 = 3;
@@ -49,7 +62,7 @@ public final class Constants {
 	public static int PWM8 = 8;
 	public static int PWM9 = 9;
 
-	public static int xboxA = 1;
+	/*public static int xboxA = 1;
 	public static int xboxB = 2;
 	public static int xboxX = 3;
 	public static int xboxY = 4;
