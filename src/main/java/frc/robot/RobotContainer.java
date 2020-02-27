@@ -42,6 +42,7 @@ public class RobotContainer {
     configureButtonBindings();
     
     m_drivebase.setDefaultCommand(m_arcadeDrive);
+    m_gearboxShift.setDefaultCommand(m_lowGear);
   }
 
   /**
