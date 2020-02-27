@@ -9,8 +9,11 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.ExampleCommand;
-import frc.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.wpilibj2.command.button.Button;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.POVButton;
+import frc.robot.commands.*;
+import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /**
@@ -21,11 +24,15 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
+  private final Drivebase m_drivebase = new Drivebase();
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  private final GearboxShift m_gearboxShift = new GearboxShift();
 
+  private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_drivebase);
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
-
-
+  private final HighGear m_highGear = new HighGear(m_gearboxShift);
+  private final LowGear m_lowGear = new LowGear(m_gearboxShift);
+  private final TankDrive m_tankDrive = new TankDrive(m_drivebase);
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -33,6 +40,8 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+    
+    m_drivebase.setDefaultCommand(m_arcadeDrive);
   }
 
   /**
@@ -42,6 +51,16 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    final Button aButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kA.value);
+    final Button xButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kX.value);
+    final Button yButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kY.value);
+    final Button bButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kB.value);
+    final Button dpadUp = new POVButton(Constants.XboxControl, 0);
+    final Button dpadRight = new POVButton(Constants.XboxControl, 90);
+    final Button dpadDown = new POVButton(Constants.XboxControl, 180);
+    final Button dpadLeft = new POVButton(Constants.XboxControl, 270);
+
+    //aButton.whenPressed(command);
   }
 
 
