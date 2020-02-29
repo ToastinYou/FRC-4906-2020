@@ -56,10 +56,36 @@ public class RobotContainer {
     final Button xButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kX.value);
     final Button yButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kY.value);
     final Button bButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kB.value);
+    
+    // 1
+    final Button stickRightButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kStickRight.value);
+
+    // 2
     final Button dpadUp = new POVButton(Constants.XboxControl, 0);
     final Button dpadRight = new POVButton(Constants.XboxControl, 90);
     final Button dpadDown = new POVButton(Constants.XboxControl, 180);
     final Button dpadLeft = new POVButton(Constants.XboxControl, 270);
+
+    // 3
+    final Button stickLeftButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kStickLeft.value);
+    
+    // 4
+    final Button backButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kBack.value);
+    
+    // 5
+    final Button bumperLeftButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kBumperLeft.value);
+
+    // 6 -- left trigger
+
+    // 7 -- XBOX home
+    
+    // 8
+    final Button startButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kStart.value);
+    
+    // 9 -- right trigger
+
+    // 10
+    final Button bumperRightBumperButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kBumperRight.value);
 
     //aButton.whenPressed(command);
   }
