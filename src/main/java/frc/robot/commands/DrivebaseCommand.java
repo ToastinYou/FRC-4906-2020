@@ -28,15 +28,18 @@ public class DrivebaseCommand extends CommandBase {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-      if (arcadeDrive) {
-        // arcade drive on joystick
-        DrivebaseSubsystem.dDrive.arcadeDrive(Constants.JoystickY(), Constants.JoystickZ());
-        drive = "Arcade";
-      }
-      else {
-        // tank drive on XB360
-        DrivebaseSubsystem.dDrive.tankDrive(Constants.XboxLY(), Constants.XboxRY());
-        drive = "Tank";
+      // when limelight is controlling, it will setup driving automatically.
+      if (!Constants.LimeLightControlling) {
+        if (arcadeDrive) {
+          // arcade drive on joystick
+          DrivebaseSubsystem.dDrive.arcadeDrive(Constants.JoystickY(), Constants.JoystickZ());
+          drive = "Arcade";
+        }
+        else {
+          // tank drive on XB360
+          DrivebaseSubsystem.dDrive.tankDrive(Constants.XboxLY(), Constants.XboxRY());
+          drive = "Tank";
+        }
       }
     }
   

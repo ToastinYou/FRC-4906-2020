@@ -8,6 +8,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
 public class DrivebaseSubsystem extends SubsystemBase {
   public static DifferentialDrive dDrive;
+  public static double left, right;
 
   public DrivebaseSubsystem() {
     WPI_TalonFX leftMotor1 = new WPI_TalonFX(Constants.CAN2);

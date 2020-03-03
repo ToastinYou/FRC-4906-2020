@@ -37,6 +37,8 @@ public final class Constants {
 	public static double JoystickZ() {
 		return XboxControl.getRawAxis(2);
 	}
+
+	public static boolean LimeLightControlling = false;
     
 	public static CANSparkMax ColorMotorController = new CANSparkMax(6, MotorType.kBrushless);
 

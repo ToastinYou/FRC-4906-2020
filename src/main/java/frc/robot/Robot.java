@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.subsystems.DrivebaseSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -54,6 +55,26 @@ public class Robot extends TimedRobot {
     }
     else {
       ColorSensor.MotorSet(0);
+    }
+
+    if (Constants.XboxControl.getYButton()) {
+      Constants.LimeLightControlling = true;
+
+      double Kp = -0.1;
+
+      double headingError = LimeLight.getTx();
+      double steeringAdjust = Kp * headingError;
+
+      DrivebaseSubsystem.left = Constants.XboxLY() + steeringAdjust;
+      DrivebaseSubsystem.right = Constants.XboxRY() - steeringAdjust;
+
+      // foreseeing a problem... if drivebase is set to arcade drive, driver will not be able to go forward/backward due to this switching it to tank drive.
+      DrivebaseSubsystem.dDrive.tankDrive(DrivebaseSubsystem.left, DrivebaseSubsystem.right);
+    }
+    else {
+      Constants.LimeLightControlling = false;
+      DrivebaseSubsystem.left = 0;
+      DrivebaseSubsystem.right = 0;
     }
   }
 
