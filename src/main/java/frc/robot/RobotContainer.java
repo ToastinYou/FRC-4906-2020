@@ -24,14 +24,13 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final Drivebase m_drivebase = new Drivebase();
+  private final DrivebaseSubsystem m_drivebaseSubsystem = new DrivebaseSubsystem();
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final GearboxShiftSubsystem m_gearboxShiftSubsystem = new GearboxShiftSubsystem();
 
-  private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_drivebase);
+  private final DrivebaseCommand m_drivebaseCommand = new DrivebaseCommand(m_drivebaseSubsystem);
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   private final GearboxShiftCommand m_gearboxShiftCommand = new GearboxShiftCommand(m_gearboxShiftSubsystem);
-  private final TankDrive m_tankDrive = new TankDrive(m_drivebase);
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -40,7 +39,7 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
     
-    m_drivebase.setDefaultCommand(m_arcadeDrive);
+    m_drivebaseSubsystem.setDefaultCommand(m_drivebaseCommand);
     m_gearboxShiftSubsystem.setDefaultCommand(m_gearboxShiftCommand);
   }
 
@@ -88,6 +87,11 @@ public class RobotContainer {
 
     //aButton.whenPressed(command);
 
+    // RSTICK button on XB360 to toggle arcade/tank drive.
+    stickRightButton.whenPressed(m_drivebaseCommand);
+    // TODO: Select second button on JOYSTICK for toggling drives.
+
+    // BACK button on XB360 to toggle low/high gear.
     backButton.whenPressed(m_gearboxShiftCommand);
   }
 

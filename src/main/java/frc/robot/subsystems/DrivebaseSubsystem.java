@@ -6,10 +6,10 @@ import frc.robot.Constants;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
-public class Drivebase extends SubsystemBase {
+public class DrivebaseSubsystem extends SubsystemBase {
   public static DifferentialDrive dDrive;
 
-  public Drivebase() {
+  public DrivebaseSubsystem() {
     WPI_TalonFX leftMotor1 = new WPI_TalonFX(Constants.CAN2);
     WPI_TalonFX leftMotor2 = new WPI_TalonFX(Constants.CAN3);
     WPI_TalonFX rightMotor1 = new WPI_TalonFX(Constants.CAN4);
