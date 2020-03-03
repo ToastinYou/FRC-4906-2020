@@ -38,6 +38,10 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+
+    // default driver mode for limelight camera w/LEDs off.
+    LimeLight.setCameraMode(LimeLight.CameraMode.eDriver);
+    LimeLight.setLedMode(LimeLight.LightMode.eOff);
     
     m_drivebaseSubsystem.setDefaultCommand(m_drivebaseCommand);
     m_gearboxShiftSubsystem.setDefaultCommand(m_gearboxShiftCommand);
