@@ -51,7 +51,7 @@ public class Robot extends TimedRobot {
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
     if (Constants.XboxControl.getAButton()) {
-      ColorSensor.MotorSet(1);
+      ColorSensor.MotorSet(0.01);
     }
     else {
       ColorSensor.MotorSet(0);

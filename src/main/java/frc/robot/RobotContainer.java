@@ -27,12 +27,16 @@ public class RobotContainer {
   private final DrivebaseSubsystem m_drivebaseSubsystem = new DrivebaseSubsystem();
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final GearboxShiftSubsystem m_gearboxShiftSubsystem = new GearboxShiftSubsystem();
+  private final HangSubsystem m_hangSubsystem = new HangSubsystem();
   private final PickupSubsystem m_pickupSubsystem = new PickupSubsystem();
+  private final ShooterSubsystem m_shooterSubsystem = new ShooterSubsystem();
 
   private final DrivebaseCommand m_drivebaseCommand = new DrivebaseCommand(m_drivebaseSubsystem);
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   private final GearboxShiftCommand m_gearboxShiftCommand = new GearboxShiftCommand(m_gearboxShiftSubsystem);
+  private final HangCommand m_hangCommand = new HangCommand(m_hangSubsystem);
   private final PickupCommand m_pickupCommand = new PickupCommand(m_pickupSubsystem);
+  private final ShooterCommand m_shooterCommand = new ShooterCommand(m_shooterSubsystem);
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -47,7 +51,9 @@ public class RobotContainer {
     
     m_drivebaseSubsystem.setDefaultCommand(m_drivebaseCommand);
     m_gearboxShiftSubsystem.setDefaultCommand(m_gearboxShiftCommand);
+    m_hangSubsystem.setDefaultCommand(m_hangCommand);
     m_pickupSubsystem.setDefaultCommand(m_pickupCommand);
+    m_shooterSubsystem.setDefaultCommand(m_shooterCommand);
   }
 
   /**

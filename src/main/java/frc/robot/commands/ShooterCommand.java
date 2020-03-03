@@ -1,15 +1,14 @@
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
-import frc.robot.subsystems.PickupSubsystem;
+import frc.robot.subsystems.ShooterSubsystem;
 
-// power cell pickup
-
-public class PickupCommand extends CommandBase {
-    private final PickupSubsystem m_subsystem;
+public class ShooterCommand extends CommandBase {
+    private final ShooterSubsystem m_subsystem;
   
-    public PickupCommand(PickupSubsystem subsystem) {
+    public ShooterCommand(ShooterSubsystem subsystem) {
       m_subsystem = subsystem;
       // Use addRequirements() here to declare subsystem dependencies.
       addRequirements(subsystem);
@@ -23,14 +22,14 @@ public class PickupCommand extends CommandBase {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-      if (Constants.XboxControl.getXButton()) {
-        PickupSubsystem.pickupMotor.set(0.01);
+      if (Constants.XboxControl.getBumper(Hand.kLeft)) {
+        ShooterSubsystem.leftMotor.set(0.01);
       }
-      else if (Constants.XboxControl.getBButton()) {
-        PickupSubsystem.pickupMotor.set(-0.01);
+      else if (Constants.XboxControl.getBumper(Hand.kRight)) {
+        ShooterSubsystem.leftMotor.set(-0.01);
       }
       else {
-        PickupSubsystem.pickupMotor.set(0);
+        ShooterSubsystem.leftMotor.set(0);
       }
     }
   
