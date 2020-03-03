@@ -26,12 +26,11 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final Drivebase m_drivebase = new Drivebase();
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-  private final GearboxShift m_gearboxShift = new GearboxShift();
+  private final GearboxShiftSubsystem m_gearboxShiftSubsystem = new GearboxShiftSubsystem();
 
   private final ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_drivebase);
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
-  private final HighGear m_highGear = new HighGear(m_gearboxShift);
-  private final LowGear m_lowGear = new LowGear(m_gearboxShift);
+  private final GearboxShiftCommand m_gearboxShiftCommand = new GearboxShiftCommand(m_gearboxShiftSubsystem);
   private final TankDrive m_tankDrive = new TankDrive(m_drivebase);
 
   /**
@@ -42,7 +41,7 @@ public class RobotContainer {
     configureButtonBindings();
     
     m_drivebase.setDefaultCommand(m_arcadeDrive);
-    m_gearboxShift.setDefaultCommand(m_lowGear);
+    m_gearboxShiftSubsystem.setDefaultCommand(m_gearboxShiftCommand);
   }
 
   /**
@@ -88,6 +87,8 @@ public class RobotContainer {
     final Button bumperRightButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kBumperRight.value);
 
     //aButton.whenPressed(command);
+
+    backButton.whenPressed(m_gearboxShiftCommand);
   }
 
 
