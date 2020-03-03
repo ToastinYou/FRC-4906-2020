@@ -85,7 +85,7 @@ public class RobotContainer {
     // 9 -- right trigger
 
     // 10
-    final Button bumperRightBumperButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kBumperRight.value);
+    final Button bumperRightButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kBumperRight.value);
 
     //aButton.whenPressed(command);
   }
