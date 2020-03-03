@@ -58,6 +58,8 @@ public class Robot extends TimedRobot {
     }
 
     if (Constants.XboxControl.getYButton()) {
+      // turn on LED to detect reflective tape
+      LimeLight.setLedMode(LimeLight.LightMode.eOn);
       Constants.LimeLightControlling = true;
 
       double Kp = -0.1;
@@ -70,6 +72,10 @@ public class Robot extends TimedRobot {
 
       // foreseeing a problem... if drivebase is set to arcade drive, driver will not be able to go forward/backward due to this switching it to tank drive.
       DrivebaseSubsystem.dDrive.tankDrive(DrivebaseSubsystem.left, DrivebaseSubsystem.right);
+      
+      // turn LED back off so we don't get penalized.
+      // might flash on/off since this will be looped.. will have to test.
+      LimeLight.setLedMode(LimeLight.LightMode.eOff);
     }
     else {
       Constants.LimeLightControlling = false;
