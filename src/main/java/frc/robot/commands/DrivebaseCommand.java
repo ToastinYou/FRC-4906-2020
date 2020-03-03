@@ -1,5 +1,6 @@
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.DrivebaseSubsystem;
@@ -7,6 +8,7 @@ import frc.robot.subsystems.DrivebaseSubsystem;
 public class DrivebaseCommand extends CommandBase {
     private final DrivebaseSubsystem m_subsystem;
     private boolean arcadeDrive = false;
+    private String drive;
   
     public DrivebaseCommand(DrivebaseSubsystem subsystem) {
       m_subsystem = subsystem;
@@ -19,6 +21,8 @@ public class DrivebaseCommand extends CommandBase {
     public void initialize() {
       // when the command is called, set arcadeDrive equal to the opposite of arcadeDrive (defaults to arcade drive)
       arcadeDrive = !arcadeDrive;
+      
+      SmartDashboard.putString("Drivebase", drive); // "drive" may not update quick enough..
     }
   
     // Called every time the scheduler runs while the command is scheduled.
@@ -27,10 +31,12 @@ public class DrivebaseCommand extends CommandBase {
       if (arcadeDrive) {
         // arcade drive on joystick
         DrivebaseSubsystem.dDrive.arcadeDrive(Constants.JoystickY(), Constants.JoystickZ());
+        drive = "Arcade";
       }
       else {
         // tank drive on XB360
         DrivebaseSubsystem.dDrive.tankDrive(Constants.XboxLY(), Constants.XboxRY());
+        drive = "Tank";
       }
     }
   
