@@ -27,7 +27,12 @@ public class IndexCommand extends CommandBase {
     IndexSubsystem.leftMotor.set(Math.abs(Constants.XboxRT() / 4));
 
     // push balls out with XB_LT (must be negative)
-    IndexSubsystem.leftMotor.set(-(Constants.XboxLT() / 4));
+    double val = Constants.XboxLT() / 4;
+    if (val >= 0) {
+      val = -val;
+    }
+
+    IndexSubsystem.leftMotor.set(val);
   }
 
   // Called once the command ends or is interrupted.
