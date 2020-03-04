@@ -29,6 +29,28 @@ public final class Constants {
 	public static double XboxRY() {
 		return XboxControl.getRawAxis(5);
 	}
+	public static double XboxLT() {
+		double trigger = XboxControl.getRawAxis(3);
+
+		// positive val = left trigger
+		if (trigger > 0.5) {
+			return trigger;
+		}
+
+		// not left trigger, return 0.
+		return 0;
+	}
+	public static double XboxRT() {
+		double trigger = XboxControl.getRawAxis(3);
+
+		// negative val = right trigger
+		if (trigger < -0.5) {
+			return trigger;
+		}
+		
+		// not right trigger, return 0.
+		return 0;
+	}
 
     public static Joystick JoystickControl = new Joystick(1);
 	public static double JoystickY() {
@@ -53,6 +75,8 @@ public final class Constants {
 	public static int CAN8 = 8;
 	public static int CAN9 = 9;
 	public static int CAN10 = 10;
+	public static int CAN11 = 11;
+	public static int CAN12 = 12;
 
 	public static int PWM0 = 0;
 	public static int PWM1 = 1;
