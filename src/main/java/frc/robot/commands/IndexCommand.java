@@ -24,7 +24,8 @@ public class IndexCommand extends CommandBase {
   @Override
   public void execute() {
     // suck balls in with XB_RT (must be positive)
-    IndexSubsystem.leftMotor.set(Math.abs(Constants.XboxRT() / 4));
+    IndexSubsystem.lowMotor.set(Math.abs(Constants.XboxRT() / 4));
+    IndexSubsystem.highMotor.set(Math.abs(Constants.XboxRT() / 4));
 
     // push balls out with XB_LT (must be negative)
     double val = Constants.XboxLT() / 4;
@@ -32,7 +33,8 @@ public class IndexCommand extends CommandBase {
       val = -val;
     }
 
-    IndexSubsystem.leftMotor.set(val);
+    IndexSubsystem.lowMotor.set(val);
+    IndexSubsystem.highMotor.set(val);
   }
 
   // Called once the command ends or is interrupted.

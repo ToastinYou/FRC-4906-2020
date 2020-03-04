@@ -77,6 +77,8 @@ public final class Constants {
 	public static int CAN10 = 10;
 	public static int CAN11 = 11;
 	public static int CAN12 = 12;
+	public static int CAN13 = 13;
+	public static int CAN14 = 14;
 
 	public static int PWM0 = 0;
 	public static int PWM1 = 1;

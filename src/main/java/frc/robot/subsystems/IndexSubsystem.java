@@ -1,21 +1,35 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import com.playingwithfusion.TimeOfFlight;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class IndexSubsystem extends SubsystemBase {
-  public static WPI_VictorSPX leftMotor;
-  private WPI_VictorSPX rightMotor;
+  public static WPI_VictorSPX lowMotor, highMotor;
+  public static TimeOfFlight tof1, tof2;
+
+  public static enum Stage {
+    Wait,
+    First,
+    Second,
+    Third,
+    Fourth,
+    Fifth,
+    Done,
+  }
+
+  public static Stage State;
 
   public IndexSubsystem() {
-    leftMotor = new WPI_VictorSPX(Constants.CAN11);
-    rightMotor = new WPI_VictorSPX(Constants.CAN12);
-    
-    rightMotor.setInverted(true);
+    lowMotor = new WPI_VictorSPX(Constants.CAN11);
+    highMotor = new WPI_VictorSPX(Constants.CAN12);
 
-    leftMotor.follow(rightMotor);
+    tof1 = new TimeOfFlight(Constants.CAN13);
+    tof2 = new TimeOfFlight(Constants.CAN14);
+
+    State = Stage.Wait;
   }
 
   @Override
