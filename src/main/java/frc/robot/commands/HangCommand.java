@@ -23,11 +23,11 @@ public class HangCommand extends CommandBase {
     @Override
     public void execute() {
       // DPAD UP
-      if (Constants.XboxControl.getPOV(0) != -1) {
+      if (Constants.XboxControl.getPOV(0) != -1 && !HangSubsystem.topLimit.get()) {
         HangSubsystem.hangMotorLeft.set(0.01);
       }
       // DPAD DOWN
-      else if (Constants.XboxControl.getPOV(180) != -1) {
+      else if (Constants.XboxControl.getPOV(180) != -1 && !HangSubsystem.bottomLimit.get()) {
         HangSubsystem.hangMotorLeft.set(-0.01);
       }
       else {
