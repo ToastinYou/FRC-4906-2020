@@ -11,10 +11,10 @@ public class DrivebaseSubsystem extends SubsystemBase {
   public static double left, right;
 
   public DrivebaseSubsystem() {
-    WPI_TalonFX leftMotor1 = new WPI_TalonFX(Constants.CAN2);
-    WPI_TalonFX leftMotor2 = new WPI_TalonFX(Constants.CAN3);
-    WPI_TalonFX rightMotor1 = new WPI_TalonFX(Constants.CAN4);
-    WPI_TalonFX rightMotor2 = new WPI_TalonFX(Constants.CAN5);
+    WPI_TalonFX leftMotor1 = new WPI_TalonFX(Constants.CAN14);
+    WPI_TalonFX leftMotor2 = new WPI_TalonFX(Constants.CAN15);
+    WPI_TalonFX rightMotor1 = new WPI_TalonFX(Constants.CAN1);
+    WPI_TalonFX rightMotor2 = new WPI_TalonFX(Constants.CAN0);
 
     dDrive = new DifferentialDrive(leftMotor1, rightMotor1);
 

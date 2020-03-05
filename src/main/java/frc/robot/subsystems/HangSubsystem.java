@@ -11,8 +11,8 @@ public class HangSubsystem extends SubsystemBase {
   private CANSparkMax hangMotorRight;
 
   public HangSubsystem() {
-    hangMotorLeft = new CANSparkMax(Constants.CAN9, MotorType.kBrushless);
-    hangMotorRight = new CANSparkMax(Constants.CAN10, MotorType.kBrushless);
+    hangMotorLeft = new CANSparkMax(Constants.CAN13, MotorType.kBrushless);
+    hangMotorRight = new CANSparkMax(Constants.CAN2, MotorType.kBrushless);
 
     hangMotorRight.setInverted(true);
 

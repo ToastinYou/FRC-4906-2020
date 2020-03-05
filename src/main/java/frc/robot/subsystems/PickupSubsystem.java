@@ -14,7 +14,7 @@ public class PickupSubsystem extends SubsystemBase {
   public static DoubleSolenoid sol1;
 
   public PickupSubsystem() {
-    pickupMotor = new CANSparkMax(Constants.CAN0, MotorType.kBrushless);
+    pickupMotor = new CANSparkMax(Constants.CAN5, MotorType.kBrushless);
     sol1 = new DoubleSolenoid(Constants.PWM2, Constants.PWM3);
   }
 

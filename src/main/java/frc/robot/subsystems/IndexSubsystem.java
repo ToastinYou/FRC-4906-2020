@@ -24,7 +24,7 @@ public class IndexSubsystem extends SubsystemBase {
 
   public IndexSubsystem() {
     lowMotor = new WPI_VictorSPX(Constants.CAN11);
-    highMotor = new WPI_VictorSPX(Constants.CAN12);
+    highMotor = new WPI_VictorSPX(Constants.CAN4);
 
     tof1 = new TimeOfFlight(Constants.CAN13);
     tof2 = new TimeOfFlight(Constants.CAN14);

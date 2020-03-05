@@ -2,6 +2,8 @@ package frc.robot.commands;
 
 import frc.robot.Constants;
 import frc.robot.subsystems.IndexSubsystem;
+import frc.robot.subsystems.PickupSubsystem;
+import frc.robot.subsystems.IndexSubsystem.Stage;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 // TODO: utilize time of flight sensors -- CREATE ALGORITHM FOR HOLDING 5 BALLS!!
@@ -35,6 +37,14 @@ public class IndexCommand extends CommandBase {
 
     IndexSubsystem.lowMotor.set(val);
     IndexSubsystem.highMotor.set(val);
+
+
+
+    // waiting and pickupMotor is spinning to receive balls.
+    if (IndexSubsystem.State == Stage.Wait && PickupSubsystem.pickupMotor.get() > 0) {
+      
+    }
+
   }
 
   // Called once the command ends or is interrupted.

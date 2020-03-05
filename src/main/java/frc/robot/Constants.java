@@ -62,7 +62,7 @@ public final class Constants {
 
 	public static boolean LimeLightControlling = false;
     
-	public static CANSparkMax ColorMotorController = new CANSparkMax(Constants.CAN6, MotorType.kBrushless);
+	public static CANSparkMax ColorMotorController = new CANSparkMax(Constants.CAN10, MotorType.kBrushless);
 
 	public static int CAN0 = 0;	
 	public static int CAN1 = 1;
@@ -79,6 +79,7 @@ public final class Constants {
 	public static int CAN12 = 12;
 	public static int CAN13 = 13;
 	public static int CAN14 = 14;
+	public static int CAN15 = 15;
 
 	public static int PWM0 = 0;
 	public static int PWM1 = 1;
