@@ -32,12 +32,12 @@ public class DrivebaseCommand extends CommandBase {
       if (!Constants.LimeLightControlling) {
         if (arcadeDrive) {
           // arcade drive on joystick
-          DrivebaseSubsystem.dDrive.arcadeDrive(Constants.JoystickY(), Constants.JoystickZ());
+          DrivebaseSubsystem.dDrive.arcadeDrive(Constants.JoystickY() / 4, Constants.JoystickZ() / 4);
           drive = "Arcade";
         }
         else {
           // tank drive on XB360
-          DrivebaseSubsystem.dDrive.tankDrive(Constants.XboxLY(), Constants.XboxRY());
+          DrivebaseSubsystem.dDrive.tankDrive(Constants.XboxLY() / 4, Constants.XboxRY() / 4);
           drive = "Tank";
         }
       }
