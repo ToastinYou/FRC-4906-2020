@@ -9,10 +9,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 // TODO: utilize time of flight sensors -- CREATE ALGORITHM FOR HOLDING 5 BALLS!!
 
 public class IndexCommand extends CommandBase {
-  private final IndexSubsystem m_subsystem;
-  
   public IndexCommand(IndexSubsystem subsystem) {
-    m_subsystem = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }

@@ -6,10 +6,7 @@ import frc.robot.Constants;
 import frc.robot.subsystems.ShooterSubsystem;
 
 public class ShooterCommand extends CommandBase {
-    private final ShooterSubsystem m_subsystem;
-  
     public ShooterCommand(ShooterSubsystem subsystem) {
-      m_subsystem = subsystem;
       // Use addRequirements() here to declare subsystem dependencies.
       addRequirements(subsystem);
     }

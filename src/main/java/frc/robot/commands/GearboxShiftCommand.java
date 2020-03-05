@@ -6,12 +6,10 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.GearboxShiftSubsystem;
 
 public class GearboxShiftCommand extends CommandBase {
-    private final GearboxShiftSubsystem m_subsystem;
     private boolean lowGear = false;
     private String gear;
   
     public GearboxShiftCommand(GearboxShiftSubsystem subsystem) {
-      m_subsystem = subsystem;
       // Use addRequirements() here to declare subsystem dependencies.
       addRequirements(subsystem);
     }

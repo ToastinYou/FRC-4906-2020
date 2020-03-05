@@ -1,15 +1,11 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.HangSubsystem;
 
 public class HangCommand extends CommandBase {
-    private final HangSubsystem m_subsystem;
-  
     public HangCommand(HangSubsystem subsystem) {
-      m_subsystem = subsystem;
       // Use addRequirements() here to declare subsystem dependencies.
       addRequirements(subsystem);
     }

@@ -6,12 +6,10 @@ import frc.robot.Constants;
 import frc.robot.subsystems.DrivebaseSubsystem;
 
 public class DrivebaseCommand extends CommandBase {
-    private final DrivebaseSubsystem m_subsystem;
     private boolean arcadeDrive = false;
     private String drive;
   
     public DrivebaseCommand(DrivebaseSubsystem subsystem) {
-      m_subsystem = subsystem;
       // Use addRequirements() here to declare subsystem dependencies.
       addRequirements(subsystem);
     }

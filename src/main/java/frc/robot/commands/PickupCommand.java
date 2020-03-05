@@ -8,11 +8,9 @@ import frc.robot.subsystems.PickupSubsystem;
 // power cell pickup
 
 public class PickupCommand extends CommandBase {
-    private final PickupSubsystem m_subsystem;
     private boolean pickupPiston = false;
   
     public PickupCommand(PickupSubsystem subsystem) {
-      m_subsystem = subsystem;
       // Use addRequirements() here to declare subsystem dependencies.
       addRequirements(subsystem);
     }
