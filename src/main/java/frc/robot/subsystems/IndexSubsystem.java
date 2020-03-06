@@ -18,9 +18,12 @@ public class IndexSubsystem extends SubsystemBase {
     Fourth,
     Fifth,
     Done,
+    WaitForBall,
+    WaitForNoBall,
   }
 
   public static Stage State;
+  public static Stage ReturnState;
 
   public IndexSubsystem() {
     lowMotor = new WPI_VictorSPX(Constants.CAN11);

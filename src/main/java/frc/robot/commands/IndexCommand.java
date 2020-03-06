@@ -37,11 +37,54 @@ public class IndexCommand extends CommandBase {
 
 
 
+
     // waiting and pickupMotor is spinning to receive balls.
     if (IndexSubsystem.State == Stage.Wait && PickupSubsystem.pickupMotor.get() > 0) {
-      
+      IndexSubsystem.State = Stage.First;
     }
 
+    if (IndexSubsystem.State == Stage.First && PickupSubsystem.pickupMotor.get() > 0) {
+      IndexSubsystem.lowMotor.set(0.01);
+
+      // cannot see ball
+      while (IndexSubsystem.tof1.getRange() > 101) {
+        // wait
+      }
+
+      // can see ball
+      while (IndexSubsystem.tof1.getRange() < 101) {
+        // wait
+      }
+
+      IndexSubsystem.lowMotor.set(0);
+
+      IndexSubsystem.State = Stage.Second;
+    }
+
+    
+    while (true) {
+      // pickupMotor is sucking in balls.
+      if (PickupSubsystem.pickupMotor.get() > 0) {
+        if (IndexSubsystem.State == Stage.First) {
+          IndexSubsystem.lowMotor.set(0.01);
+          
+          IndexSubsystem.State = Stage.WaitForBall;
+          IndexSubsystem.ReturnState = Stage.Second;
+        }
+        if (IndexSubsystem.State == Stage.WaitForBall) {
+          // can see ball
+          if (IndexSubsystem.tof1.getRange() < 101) {
+            IndexSubsystem.State = Stage.WaitForNoBall;
+          }
+        }
+        if (IndexSubsystem.State == Stage.WaitForNoBall) {
+          // cannot see ball
+          if (IndexSubsystem.tof1.getRange() > 101) {
+            IndexSubsystem.State = IndexSubsystem.ReturnState;
+          }
+        }
+      }
+    }
   }
 
   // Called once the command ends or is interrupted.
