@@ -9,13 +9,13 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 // power cell pickup
 
-public class PickupSubsystem extends SubsystemBase {
+public class IntakeSubsystem extends SubsystemBase {
   public static CANSparkMax pickupMotor;
   public static DoubleSolenoid sol1;
 
-  public PickupSubsystem() {
-    pickupMotor = new CANSparkMax(Constants.CAN5, MotorType.kBrushless);
-    sol1 = new DoubleSolenoid(Constants.PWM2, Constants.PWM3);
+  public IntakeSubsystem() {
+    pickupMotor = new CANSparkMax(Constants.kCIntake, MotorType.kBrushless);
+    sol1 = new DoubleSolenoid(Constants.kPIntakeFwd, Constants.kPIntakeRev);
   }
 
   @Override

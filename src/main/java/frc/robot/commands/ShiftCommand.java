@@ -3,13 +3,13 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.GearboxShiftSubsystem;
+import frc.robot.subsystems.ShiftSubsystem;
 
-public class GearboxShiftCommand extends CommandBase {
+public class ShiftCommand extends CommandBase {
     private boolean lowGear = false;
     private String gear;
   
-    public GearboxShiftCommand(GearboxShiftSubsystem subsystem) {
+    public ShiftCommand(ShiftSubsystem subsystem) {
       // Use addRequirements() here to declare subsystem dependencies.
       addRequirements(subsystem);
     }
@@ -28,12 +28,12 @@ public class GearboxShiftCommand extends CommandBase {
     public void execute() {
       if (lowGear) {
         // low gear
-        GearboxShiftSubsystem.sol1.set(DoubleSolenoid.Value.kReverse);
+        ShiftSubsystem.sol1.set(DoubleSolenoid.Value.kReverse);
         gear = "Low";
       }
       else {
         // high gear
-        GearboxShiftSubsystem.sol1.set(DoubleSolenoid.Value.kForward);
+        ShiftSubsystem.sol1.set(DoubleSolenoid.Value.kForward);
         gear = "High";
       }
     }

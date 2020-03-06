@@ -62,57 +62,41 @@ public final class Constants {
 
 	public static boolean LimeLightControlling = false;
     
-	public static CANSparkMax ColorMotorController = new CANSparkMax(Constants.CAN10, MotorType.kBrushless);
+	public static CANSparkMax ColorMotorController = new CANSparkMax(Constants.kCColor, MotorType.kBrushless);
 
-	public static int CAN0 = 0;	
-	public static int CAN1 = 1;
-	public static int CAN2 = 2;
-	public static int CAN3 = 3;
-	public static int CAN4 = 4;
-	public static int CAN5 = 5;
-	public static int CAN6 = 6;
-	public static int CAN7 = 7;
-	public static int CAN8 = 8;
-	public static int CAN9 = 9;
-	public static int CAN10 = 10;
-	public static int CAN11 = 11;
-	public static int CAN12 = 12;
-	public static int CAN13 = 13;
-	public static int CAN14 = 14;
-	public static int CAN15 = 15;
+	// (CAN)
+	public static int kCDriveRRear = 0;	// Drive Right Rear
+	public static int kCDriveRFront = 1; // Drive Right Front
+	public static int kCHangRight = 2; // Hang Right
+	public static int kCShooterRight = 3; // Shooter Right
+	public static int kCConveyorVert = 4; // Conveyor Vertical
+	public static int kCIntake = 5; // Intake
+	public static int CAN6 = 6; // Time of Flight??
+	public static int CAN7 = 7; // 
+	public static int CAN8 = 8; // Lime Light
+	public static int CAN9 = 9; // Internet Switch
+	public static int kCColor = 10; // Color Spinner
+	public static int kCConveyorHoriz = 11; // Conveyor Horizontal
+	public static int kCShooterLeft = 12; // Shooter Left
+	public static int kCHangLeft = 13; // Hang Left
+	public static int kCDriveLFront = 14; // Drive Left Front
+	public static int kCDriveLRear = 15; // Drive Left Rear
 
-	public static int PWM0 = 0;
-	public static int PWM1 = 1;
-	public static int PWM2 = 2;
-	public static int PWM3 = 3;
-	public static int PWM4 = 4;
-	public static int PWM5 = 5;
-	public static int PWM6 = 6;
-	public static int PWM7 = 7;
-	public static int PWM8 = 8;
-	public static int PWM9 = 9;
+	public static int CANUNKWN = 9999;
 
-	/*public static int xboxA = 1;
-	public static int xboxB = 2;
-	public static int xboxX = 3;
-	public static int xboxY = 4;
-	public static int xboxLB = 5;
-	public static int xboxRB = 6;
-	public static int xboxBack = 7;
-	public static int xboxStart = 8;
-	public static int xboxLS = 9;
-	public static int xboxRS = 10;
+	// PCM 0, 1 intake arm.
+	// PCM 2, 3 gearbox shifter.
+	// PCM 4, 5 airbrake hanger.
 
-	public static int joystick1 = 1;
-	public static int joystick2 = 2;
-	public static int joystick3 = 3;
-	public static int joystick4 = 4;
-	public static int joystick5 = 5;
-	public static int joystick6 = 6;
-	public static int joystick7 = 7;
-	public static int joystick8 = 8;
-	public static int joystick9 = 9;
-	public static int joystick10 = 10;
-	public static int joystick11 = 11;
-	public static int joystick12 = 12;*/
+	// Pneumatic Control Module (PCM)
+	public static int kPIntakeFwd = 0;
+	public static int kPIntakeRev = 1;
+	public static int kPShiftFwd = 2;
+	public static int kPShiftRev = 3;
+	public static int kPHangFwd = 4;
+	public static int kPHangRev = 5;
+
+	// Digital Input Output (DIO)
+	public static int kDHangTop = 0; // Hang Top Limit Switch
+	public static int kDHangBottom = 0; // Hang Bottom Limit Switch
 }

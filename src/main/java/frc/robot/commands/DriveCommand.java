@@ -3,13 +3,13 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
-import frc.robot.subsystems.DrivebaseSubsystem;
+import frc.robot.subsystems.DriveSubsystem;
 
-public class DrivebaseCommand extends CommandBase {
+public class DriveCommand extends CommandBase {
     private boolean arcadeDrive = false;
     private String drive;
   
-    public DrivebaseCommand(DrivebaseSubsystem subsystem) {
+    public DriveCommand(DriveSubsystem subsystem) {
       // Use addRequirements() here to declare subsystem dependencies.
       addRequirements(subsystem);
     }
@@ -30,12 +30,12 @@ public class DrivebaseCommand extends CommandBase {
       if (!Constants.LimeLightControlling) {
         if (arcadeDrive) {
           // arcade drive on joystick
-          DrivebaseSubsystem.dDrive.arcadeDrive(Constants.JoystickY() / 4, Constants.JoystickZ() / 4);
+          DriveSubsystem.dDrive.arcadeDrive(Constants.JoystickY() / 4, Constants.JoystickZ() / 4);
           drive = "Arcade";
         }
         else {
           // tank drive on XB360
-          DrivebaseSubsystem.dDrive.tankDrive(Constants.XboxLY() / 4, Constants.XboxRY() / 4);
+          DriveSubsystem.dDrive.tankDrive(Constants.XboxLY() / 4, Constants.XboxRY() / 4);
           drive = "Tank";
         }
       }

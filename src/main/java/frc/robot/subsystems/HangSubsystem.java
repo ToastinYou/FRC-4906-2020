@@ -14,15 +14,15 @@ public class HangSubsystem extends SubsystemBase {
   public static DigitalInput topLimit, bottomLimit;
 
   public HangSubsystem() {
-    hangMotorLeft = new CANSparkMax(Constants.CAN13, MotorType.kBrushless);
-    hangMotorRight = new CANSparkMax(Constants.CAN2, MotorType.kBrushless);
+    hangMotorLeft = new CANSparkMax(Constants.kCHangLeft, MotorType.kBrushless);
+    hangMotorRight = new CANSparkMax(Constants.kCHangRight, MotorType.kBrushless);
 
     hangMotorRight.setInverted(true);
 
     hangMotorLeft.follow(hangMotorRight);
 
-    topLimit = new DigitalInput(0);
-    bottomLimit = new DigitalInput(1);
+    topLimit = new DigitalInput(Constants.kDHangTop);
+    bottomLimit = new DigitalInput(Constants.kDHangBottom);
   }
 
   @Override
