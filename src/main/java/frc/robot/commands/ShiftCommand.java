@@ -28,12 +28,12 @@ public class ShiftCommand extends CommandBase {
     public void execute() {
       if (lowGear) {
         // low gear
-        ShiftSubsystem.sol1.set(DoubleSolenoid.Value.kReverse);
+        ShiftSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
         gear = "Low";
       }
       else {
         // high gear
-        ShiftSubsystem.sol1.set(DoubleSolenoid.Value.kForward);
+        ShiftSubsystem.sol.set(DoubleSolenoid.Value.kForward);
         gear = "High";
       }
     }

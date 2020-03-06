@@ -20,10 +20,10 @@ public class ShooterCommand extends CommandBase {
     @Override
     public void execute() {
       if (Constants.XboxControl.getBumper(Hand.kLeft)) {
-        ShooterSubsystem.leftMotor.set(0.01);
+        ShooterSubsystem.leftMotor.set(Constants.kSpeedShooterFwd);
       }
       else if (Constants.XboxControl.getBumper(Hand.kRight)) {
-        ShooterSubsystem.leftMotor.set(-0.01);
+        ShooterSubsystem.leftMotor.set(Constants.kSpeedShooterRev);
       }
       else {
         ShooterSubsystem.leftMotor.set(0);

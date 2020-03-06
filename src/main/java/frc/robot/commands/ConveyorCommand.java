@@ -23,11 +23,11 @@ public class ConveyorCommand extends CommandBase {
   @Override
   public void execute() {
     // suck balls in with XB_RT (must be positive)
-    ConveyorSubsystem.verticalMotor.set(Math.abs(Constants.XboxRT() / 4));
-    ConveyorSubsystem.horizontalMotor.set(Math.abs(Constants.XboxRT() / 4));
+    ConveyorSubsystem.verticalMotor.set(Math.abs(Constants.XboxRT() / Constants.kSpeedConveyorDecrement));
+    ConveyorSubsystem.horizontalMotor.set(Math.abs(Constants.XboxRT() / Constants.kSpeedConveyorDecrement));
 
     // push balls out with XB_LT (must be negative)
-    double val = Constants.XboxLT() / 4;
+    double val = Constants.XboxLT() / Constants.kSpeedConveyorDecrement;
     if (val >= 0) {
       val = -val;
     }
@@ -39,20 +39,20 @@ public class ConveyorCommand extends CommandBase {
 
 
     // waiting and pickupMotor is spinning to receive balls.
-    if (ConveyorSubsystem.State == Stage.Wait && IntakeSubsystem.pickupMotor.get() > 0) {
+    if (ConveyorSubsystem.State == Stage.Wait && IntakeSubsystem.intakeMotor.get() > 0) {
       ConveyorSubsystem.State = Stage.First;
     }
 
-    if (ConveyorSubsystem.State == Stage.First && IntakeSubsystem.pickupMotor.get() > 0) {
-      ConveyorSubsystem.verticalMotor.set(0.01);
+    if (ConveyorSubsystem.State == Stage.First && IntakeSubsystem.intakeMotor.get() > 0) {
+      ConveyorSubsystem.verticalMotor.set(Constants.kSpeedConveyorFwd);
 
       // cannot see ball
-      while (ConveyorSubsystem.tof1.getRange() > 101) {
+      while (ConveyorSubsystem.tof1.getRange() > Constants.kTOFHalfDist) {
         // wait
       }
 
       // can see ball
-      while (ConveyorSubsystem.tof1.getRange() < 101) {
+      while (ConveyorSubsystem.tof1.getRange() < Constants.kTOFHalfDist) {
         // wait
       }
 
@@ -64,22 +64,22 @@ public class ConveyorCommand extends CommandBase {
     
     while (true) {
       // pickupMotor is sucking in balls.
-      if (IntakeSubsystem.pickupMotor.get() > 0) {
+      if (IntakeSubsystem.intakeMotor.get() > 0) {
         if (ConveyorSubsystem.State == Stage.First) {
-          ConveyorSubsystem.verticalMotor.set(0.01);
+          ConveyorSubsystem.verticalMotor.set(Constants.kSpeedConveyorFwd);
           
           ConveyorSubsystem.State = Stage.WaitForBall;
           ConveyorSubsystem.ReturnState = Stage.Second;
         }
         if (ConveyorSubsystem.State == Stage.WaitForBall) {
           // can see ball
-          if (ConveyorSubsystem.tof1.getRange() < 101) {
+          if (ConveyorSubsystem.tof1.getRange() < Constants.kTOFHalfDist) {
             ConveyorSubsystem.State = Stage.WaitForNoBall;
           }
         }
         if (ConveyorSubsystem.State == Stage.WaitForNoBall) {
           // cannot see ball
-          if (ConveyorSubsystem.tof1.getRange() > 101) {
+          if (ConveyorSubsystem.tof1.getRange() > Constants.kTOFHalfDist) {
             ConveyorSubsystem.State = ConveyorSubsystem.ReturnState;
           }
         }

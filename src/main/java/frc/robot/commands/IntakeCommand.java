@@ -19,31 +19,31 @@ public class IntakeCommand extends CommandBase {
     @Override
     public void initialize() {
       // default pickup to upward
-      IntakeSubsystem.sol1.set(DoubleSolenoid.Value.kReverse);
+      IntakeSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
     }
   
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
       if (Constants.XboxControl.getXButton()) {
-        IntakeSubsystem.pickupMotor.set(0.01);
+        IntakeSubsystem.intakeMotor.set(Constants.kSpeedIntakeFwd);
       }
       else if (Constants.XboxControl.getBButton()) {
-        IntakeSubsystem.pickupMotor.set(-0.01);
+        IntakeSubsystem.intakeMotor.set(Constants.kSpeedIntakeRev);
       }
       else {
-        IntakeSubsystem.pickupMotor.set(0);
+        IntakeSubsystem.intakeMotor.set(0);
       }
 
       // DPAD RIGHT
       if (Constants.XboxControl.getPOV(90) != 1) {
         if (!intakePiston) {
           intakePiston = true;
-          IntakeSubsystem.sol1.set(DoubleSolenoid.Value.kForward);
+          IntakeSubsystem.sol.set(DoubleSolenoid.Value.kForward);
         }
         else {
           intakePiston = false;
-          IntakeSubsystem.sol1.set(DoubleSolenoid.Value.kReverse);
+          IntakeSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
         }
       }
     }

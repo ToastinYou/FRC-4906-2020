@@ -99,4 +99,19 @@ public final class Constants {
 	// Digital Input Output (DIO)
 	public static int kDHangTop = 0; // Hang Top Limit Switch
 	public static int kDHangBottom = 0; // Hang Bottom Limit Switch
+
+	// Motor Speeds
+	public static double kSpeedShooterFwd = 0.01; // Shooter Forward
+	public static double kSpeedShooterRev = -0.01; // Shoter Reverse
+	public static double kSpeedIntakeFwd = 0.01; // Intake Forward
+	public static double kSpeedIntakeRev = -0.01; // Intake Reverse
+	public static double kSpeedHangFwd = 0.01; // Hang Forward
+	public static double kSpeedHangRev = -0.01; // Hang Reverse
+	public static double kSpeedDriveDecrement = 4; // Speed to divide drive by.
+	public static double kSpeedConveyorDecrement = 4; // Speed to divide conveyor by.
+	public static double kSpeedConveyorFwd = 0.01; // Conveyor Forward
+	public static double kSpeedConveyorRev = -0.01; // Conveyor Reverse
+
+	// Time of Flight
+	public static int kTOFHalfDist = 101; // Time of Flight distance halfway (millimeters).
 }

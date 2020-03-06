@@ -20,11 +20,11 @@ public class HangCommand extends CommandBase {
     public void execute() {
       // DPAD UP
       if (Constants.XboxControl.getPOV(0) != -1 && !HangSubsystem.topLimit.get()) {
-        HangSubsystem.hangMotorLeft.set(0.01);
+        HangSubsystem.hangMotorLeft.set(Constants.kSpeedHangFwd);
       }
       // DPAD DOWN
       else if (Constants.XboxControl.getPOV(180) != -1 && !HangSubsystem.bottomLimit.get()) {
-        HangSubsystem.hangMotorLeft.set(-0.01);
+        HangSubsystem.hangMotorLeft.set(Constants.kSpeedHangRev);
       }
       else {
         HangSubsystem.hangMotorLeft.set(0);
