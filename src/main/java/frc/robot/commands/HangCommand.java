@@ -20,10 +20,12 @@ public class HangCommand extends CommandBase {
     @Override
     public void execute() {
       if (Constants.XboxControl.getAButton()) {
-        HangSubsystem.hangMotorLeft.set(Constants.kSpeedHangFwd);
+        HangSubsystem.hangMotorLeft.set(Constants.kSpeedHangRev);
+        HangSubsystem.hangMotorRight.set(Constants.kSpeedHangFwd);
       }
       else {
         HangSubsystem.hangMotorLeft.set(0);
+        HangSubsystem.hangMotorRight.set(0);
       }
 
       //HangSubsystem.hangMotorLeft.set(new XboxController(0).getRawAxis(5));

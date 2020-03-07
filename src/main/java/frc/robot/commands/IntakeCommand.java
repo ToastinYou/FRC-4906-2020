@@ -26,13 +26,13 @@ public class IntakeCommand extends CommandBase {
     @Override
     public void execute() {
       if (Constants.XboxControl.getXButton()) {
-        //IntakeSubsystem.intakeMotor.set(Constants.kSpeedIntakeFwd);
+        IntakeSubsystem.intakeMotor.set(Constants.kSpeedIntakeFwd);
       }
       /*else if (Constants.XboxControl.getBButton()) {
         IntakeSubsystem.intakeMotor.set(Constants.kSpeedIntakeRev);
       }*/
       else {
-        //IntakeSubsystem.intakeMotor.set(0);
+        IntakeSubsystem.intakeMotor.set(0);
       }
 
       // DPAD RIGHT

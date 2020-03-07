@@ -69,7 +69,7 @@ public final class Constants {
 	public static int kCDriveRFront = 1; // Drive Right Front
 	public static int kCHangRight = 2; // Hang Right
 	public static int kCShooterRight = 3; // Shooter Right
-	//public static int kCIntake = 4; // Conveyor Vertical
+	public static int kCIntake = 4; // Conveyor Vertical
 	public static int kCConveyorHoriz = 5; // Conveyor Horizontal
 	public static int CAN6 = 6; // Time of Flight??
 	public static int CAN7 = 7; // 
@@ -78,7 +78,7 @@ public final class Constants {
 	public static int kCColor = 10; // Color Spinner
 	public static int kCConveyorVert = 11; // Conveyor Horizontal
 	public static int kCShooterLeft = 12; // Shooter Left
-	public static int kCHangLeft = 4; // Hang Left
+	public static int kCHangLeft = 13; // Hang Left
 	public static int kCDriveLFront = 14; // Drive Left Front
 	public static int kCDriveLRear = 15; // Drive Left Rear
 

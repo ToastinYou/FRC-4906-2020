@@ -9,15 +9,19 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 public class HangSubsystem extends SubsystemBase {
   public static CANSparkMax hangMotorLeft;
-  //public static CANSparkMax hangMotorRight;
+  public static CANSparkMax hangMotorRight;
 
   //public static DigitalInput topLimit, bottomLimit;
 
   public HangSubsystem() {
     hangMotorLeft = new CANSparkMax(Constants.kCHangLeft, MotorType.kBrushless);
-    //hangMotorRight = new CANSparkMax(Constants.kCHangRight, MotorType.kBrushless);
+    hangMotorRight = new CANSparkMax(Constants.kCHangRight, MotorType.kBrushless);
 
-    //hangMotorRight.setInverted(true);
+    hangMotorLeft.restoreFactoryDefaults();
+    hangMotorRight.restoreFactoryDefaults();
+    //hangMotorLeft.setInverted(true);
+    //hangMotorLeft.follow(hangMotorRight);
+    hangMotorLeft.setInverted(false);
 
     //hangMotorRight.follow(hangMotorLeft);
 
