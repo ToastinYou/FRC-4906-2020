@@ -19,12 +19,12 @@ public class ShooterCommand extends CommandBase {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-      if (Constants.XboxControl.getBumper(Hand.kLeft)) {
+      if (Constants.XboxControl.getYButton()) {
         ShooterSubsystem.leftMotor.set(Constants.kSpeedShooterFwd);
       }
-      else if (Constants.XboxControl.getBumper(Hand.kRight)) {
+      /*else if (Constants.XboxControl.getBumper(Hand.kRight)) {
         ShooterSubsystem.leftMotor.set(Constants.kSpeedShooterRev);
-      }
+      }*/
       else {
         ShooterSubsystem.leftMotor.set(0);
       }

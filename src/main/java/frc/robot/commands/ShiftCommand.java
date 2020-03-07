@@ -12,15 +12,16 @@ public class ShiftCommand extends CommandBase {
     public ShiftCommand(ShiftSubsystem subsystem) {
       // Use addRequirements() here to declare subsystem dependencies.
       addRequirements(subsystem);
+      
+      // when the command is called, set lowGear equal to the opposite of lowGear (defaults to low gear)
+      lowGear = !lowGear;
+
+      //SmartDashboard.putString("Gearbox", gear); // "gear" may not update quick enough..
     }
   
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-      // when the command is called, set lowGear equal to the opposite of lowGear (defaults to low gear)
-      lowGear = !lowGear;
-
-      SmartDashboard.putString("Gearbox", gear); // "gear" may not update quick enough..
     }
   
     // Called every time the scheduler runs while the command is scheduled.

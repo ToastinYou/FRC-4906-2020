@@ -50,14 +50,8 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
-    if (Constants.XboxControl.getAButton()) {
-      ColorSensor.MotorSet(0.01);
-    }
-    else {
-      ColorSensor.MotorSet(0);
-    }
 
-    if (Constants.XboxControl.getYButton()) {
+    /*if (Constants.XboxControl.getYButton()) {
       // turn on LED to detect reflective tape
       LimeLight.setLedMode(LimeLight.LightMode.eOn);
       Constants.LimeLightControlling = true;
@@ -67,11 +61,11 @@ public class Robot extends TimedRobot {
       double headingError = LimeLight.getTx();
       double steeringAdjust = Kp * headingError;
 
-      DriveSubsystem.left = Constants.XboxLY() + steeringAdjust;
-      DriveSubsystem.right = Constants.XboxRY() - steeringAdjust;
+      //DriveSubsystem.left = Constants.XboxLY() + steeringAdjust;
+      //DriveSubsystem.right = Constants.XboxRY() - steeringAdjust;
 
       // foreseeing a problem... if drivebase is set to arcade drive, driver will not be able to go forward/backward due to this switching it to tank drive.
-      DriveSubsystem.dDrive.tankDrive(DriveSubsystem.left, DriveSubsystem.right);
+      //DriveSubsystem.dDrive.tankDrive(DriveSubsystem.left, DriveSubsystem.right);
       
       // turn LED back off so we don't get penalized.
       // might flash on/off since this will be looped.. will have to test.
@@ -79,9 +73,9 @@ public class Robot extends TimedRobot {
     }
     else {
       Constants.LimeLightControlling = false;
-      DriveSubsystem.left = 0;
-      DriveSubsystem.right = 0;
-    }
+      //DriveSubsystem.left = 0;
+      //DriveSubsystem.right = 0;
+    }*/
   }
 
   /**

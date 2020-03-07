@@ -54,35 +54,33 @@ public final class Constants {
 
     public static Joystick JoystickControl = new Joystick(1);
 	public static double JoystickY() {
-		return XboxControl.getRawAxis(1);
+		return -JoystickControl.getRawAxis(1);
 	}
 	public static double JoystickZ() {
-		return XboxControl.getRawAxis(2);
+		return JoystickControl.getRawAxis(2);
 	}
 
 	public static boolean LimeLightControlling = false;
     
-	public static CANSparkMax ColorMotorController = new CANSparkMax(Constants.kCColor, MotorType.kBrushless);
+	//public static CANSparkMax ColorMotorController = new CANSparkMax(Constants.kCColor, MotorType.kBrushless);
 
 	// (CAN)
 	public static int kCDriveRRear = 0;	// Drive Right Rear
 	public static int kCDriveRFront = 1; // Drive Right Front
 	public static int kCHangRight = 2; // Hang Right
 	public static int kCShooterRight = 3; // Shooter Right
-	public static int kCConveyorVert = 4; // Conveyor Vertical
-	public static int kCIntake = 5; // Intake
+	//public static int kCIntake = 4; // Conveyor Vertical
+	public static int kCConveyorHoriz = 5; // Conveyor Horizontal
 	public static int CAN6 = 6; // Time of Flight??
 	public static int CAN7 = 7; // 
 	public static int CAN8 = 8; // Lime Light
 	public static int CAN9 = 9; // Internet Switch
 	public static int kCColor = 10; // Color Spinner
-	public static int kCConveyorHoriz = 11; // Conveyor Horizontal
+	public static int kCConveyorVert = 11; // Conveyor Horizontal
 	public static int kCShooterLeft = 12; // Shooter Left
-	public static int kCHangLeft = 13; // Hang Left
+	public static int kCHangLeft = 4; // Hang Left
 	public static int kCDriveLFront = 14; // Drive Left Front
 	public static int kCDriveLRear = 15; // Drive Left Rear
-
-	public static int CANUNKWN = 9999;
 
 	// PCM 0, 1 intake arm.
 	// PCM 2, 3 gearbox shifter.
@@ -98,19 +96,19 @@ public final class Constants {
 
 	// Digital Input Output (DIO)
 	public static int kDHangTop = 0; // Hang Top Limit Switch
-	public static int kDHangBottom = 0; // Hang Bottom Limit Switch
+	public static int kDHangBottom = 1; // Hang Bottom Limit Switch
 
 	// Motor Speeds
-	public static double kSpeedShooterFwd = 0.01; // Shooter Forward
-	public static double kSpeedShooterRev = -0.01; // Shoter Reverse
-	public static double kSpeedIntakeFwd = 0.01; // Intake Forward
-	public static double kSpeedIntakeRev = -0.01; // Intake Reverse
-	public static double kSpeedHangFwd = 0.01; // Hang Forward
-	public static double kSpeedHangRev = -0.01; // Hang Reverse
-	public static double kSpeedDriveDecrement = 4; // Speed to divide drive by.
-	public static double kSpeedConveyorDecrement = 4; // Speed to divide conveyor by.
-	public static double kSpeedConveyorFwd = 0.01; // Conveyor Forward
-	public static double kSpeedConveyorRev = -0.01; // Conveyor Reverse
+	public static double kSpeedShooterFwd = -0.8; // Shooter Forward
+	public static double kSpeedShooterRev = 0.4; // Shoter Reverse
+	public static double kSpeedIntakeFwd = -0.4; // Intake Forward
+	public static double kSpeedIntakeRev = 0.4; // Intake Reverse
+	public static double kSpeedHangFwd = 0.4; // Hang Forward
+	public static double kSpeedHangRev = -0.4; // Hang Reverse
+	public static double kSpeedDriveDecrement = 2; // Speed to divide drive by.
+	public static double kSpeedConveyorDecrement = 2; // Speed to divide conveyor by.
+	public static double kSpeedConveyorFwd = -0.6; // Conveyor Forward
+	public static double kSpeedConveyorRev = 0.4; // Conveyor Reverse
 
 	// Time of Flight
 	public static int kTOFHalfDist = 101; // Time of Flight distance halfway (millimeters).

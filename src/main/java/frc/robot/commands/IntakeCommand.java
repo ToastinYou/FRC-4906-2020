@@ -26,17 +26,17 @@ public class IntakeCommand extends CommandBase {
     @Override
     public void execute() {
       if (Constants.XboxControl.getXButton()) {
-        IntakeSubsystem.intakeMotor.set(Constants.kSpeedIntakeFwd);
+        //IntakeSubsystem.intakeMotor.set(Constants.kSpeedIntakeFwd);
       }
-      else if (Constants.XboxControl.getBButton()) {
+      /*else if (Constants.XboxControl.getBButton()) {
         IntakeSubsystem.intakeMotor.set(Constants.kSpeedIntakeRev);
-      }
+      }*/
       else {
-        IntakeSubsystem.intakeMotor.set(0);
+        //IntakeSubsystem.intakeMotor.set(0);
       }
 
       // DPAD RIGHT
-      if (Constants.XboxControl.getPOV(90) != 1) {
+      /*if (Constants.XboxControl.getPOV(90) != 1) {
         if (!intakePiston) {
           intakePiston = true;
           IntakeSubsystem.sol.set(DoubleSolenoid.Value.kForward);
@@ -45,7 +45,7 @@ public class IntakeCommand extends CommandBase {
           intakePiston = false;
           IntakeSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
         }
-      }
+      }*/
     }
   
     // Called once the command ends or is interrupted.

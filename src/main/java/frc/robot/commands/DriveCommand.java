@@ -20,14 +20,15 @@ public class DriveCommand extends CommandBase {
       // when the command is called, set arcadeDrive equal to the opposite of arcadeDrive (defaults to arcade drive)
       arcadeDrive = !arcadeDrive;
       
-      SmartDashboard.putString("Drivebase", drive); // "drive" may not update quick enough..
+      //SmartDashboard.putString("Drivebase", drive); // "drive" may not update quick enough..
     }
   
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
+      DriveSubsystem.dDrive.arcadeDrive(Constants.JoystickY() / Constants.kSpeedDriveDecrement, Constants.JoystickZ() / Constants.kSpeedDriveDecrement);
       // when limelight is controlling, it will setup driving automatically.
-      if (!Constants.LimeLightControlling) {
+      /*if (!Constants.LimeLightControlling) {
         if (arcadeDrive) {
           // arcade drive on joystick
           DriveSubsystem.dDrive.arcadeDrive(Constants.JoystickY() / Constants.kSpeedDriveDecrement, Constants.JoystickZ() / Constants.kSpeedDriveDecrement);
@@ -38,7 +39,7 @@ public class DriveCommand extends CommandBase {
           DriveSubsystem.dDrive.tankDrive(Constants.XboxLY() / Constants.kSpeedDriveDecrement, Constants.XboxRY() / Constants.kSpeedDriveDecrement);
           drive = "Tank";
         }
-      }
+      }*/
     }
   
     // Called once the command ends or is interrupted.

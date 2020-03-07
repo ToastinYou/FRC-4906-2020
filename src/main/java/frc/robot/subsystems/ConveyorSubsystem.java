@@ -8,7 +8,7 @@ import frc.robot.Constants;
 
 public class ConveyorSubsystem extends SubsystemBase {
   public static WPI_VictorSPX verticalMotor, horizontalMotor;
-  public static TimeOfFlight tof1, tof2;
+  //public static TimeOfFlight tof1, tof2;
 
   public static enum Stage {
     Wait,
@@ -29,8 +29,8 @@ public class ConveyorSubsystem extends SubsystemBase {
     horizontalMotor = new WPI_VictorSPX(Constants.kCConveyorHoriz);
     verticalMotor = new WPI_VictorSPX(Constants.kCConveyorVert);
 
-    tof1 = new TimeOfFlight(Constants.CANUNKWN);
-    tof2 = new TimeOfFlight(Constants.CANUNKWN);
+    //tof1 = new TimeOfFlight(Constants.CANUNKWN);
+    //tof2 = new TimeOfFlight(Constants.CANUNKWN);
 
     State = Stage.Wait;
   }

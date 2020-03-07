@@ -25,20 +25,22 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final AirSubsystem m_airSubsystem = new AirSubsystem();
+  private final ColorSubsystem m_colorSubsystem = new ColorSubsystem();
   private final ConveyorSubsystem m_conveyorSubsystem = new ConveyorSubsystem();
   private final DriveSubsystem m_driveSubsystem = new DriveSubsystem();
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final HangSubsystem m_hangSubsystem = new HangSubsystem();
   private final IntakeSubsystem m_intakeSubsystem = new IntakeSubsystem();
-  private final ShiftSubsystem m_shiftSubsystem = new ShiftSubsystem();
+  //private final ShiftSubsystem m_shiftSubsystem = new ShiftSubsystem();
   private final ShooterSubsystem m_shooterSubsystem = new ShooterSubsystem();
 
+  private final ColorCommand m_colorCommand = new ColorCommand(m_colorSubsystem);
   private final ConveyorCommand m_conveyorCommand = new ConveyorCommand(m_conveyorSubsystem);
   private final DriveCommand m_driveCommand = new DriveCommand(m_driveSubsystem);
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   private final HangCommand m_hangCommand = new HangCommand(m_hangSubsystem);
   private final IntakeCommand m_intakeCommand = new IntakeCommand(m_intakeSubsystem);
-  private final ShiftCommand m_shiftCommand = new ShiftCommand(m_shiftSubsystem);
+  //private final ShiftCommand m_shiftCommand = new ShiftCommand(m_shiftSubsystem);
   private final ShooterCommand m_shooterCommand = new ShooterCommand(m_shooterSubsystem);
 
   /**
@@ -52,12 +54,21 @@ public class RobotContainer {
     LimeLight.setCameraMode(LimeLight.CameraMode.eDriver);
     LimeLight.setLedMode(LimeLight.LightMode.eOff);
     
+    m_colorSubsystem.setDefaultCommand(m_colorCommand);
     m_conveyorSubsystem.setDefaultCommand(m_conveyorCommand);
     m_driveSubsystem.setDefaultCommand(m_driveCommand);
     m_hangSubsystem.setDefaultCommand(m_hangCommand);
     m_intakeSubsystem.setDefaultCommand(m_intakeCommand);
-    m_shiftSubsystem.setDefaultCommand(m_shiftCommand);
+    //m_shiftSubsystem.setDefaultCommand(m_shiftCommand);
     m_shooterSubsystem.setDefaultCommand(m_shooterCommand);
+
+    m_colorCommand.schedule();
+    m_conveyorCommand.schedule();
+    m_driveCommand.schedule();
+    m_hangCommand.schedule();
+    m_intakeCommand.schedule();
+    //m_shiftCommand.schedule();
+    m_shooterCommand.schedule();
   }
 
   /**
@@ -105,11 +116,11 @@ public class RobotContainer {
     //aButton.whenPressed(command);
 
     // RSTICK button on XB360 to toggle arcade/tank drive.
-    stickRightButton.whenPressed(m_driveCommand);
+    //stickRightButton.whenPressed(m_driveCommand);
     // TODO: Select second button on JOYSTICK for toggling drives.
 
     // BACK button on XB360 to toggle low/high gear.
-    backButton.whenPressed(m_shiftCommand);
+    //backButton.whenPressed(new ShiftCommand(m_shiftSubsystem));
   }
 
 

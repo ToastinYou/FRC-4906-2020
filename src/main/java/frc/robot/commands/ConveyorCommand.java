@@ -22,24 +22,33 @@ public class ConveyorCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    if (Constants.XboxControl.getBButton()) {
+      ConveyorSubsystem.horizontalMotor.set(0.8);
+      ConveyorSubsystem.verticalMotor.set(-0.8);
+    }
+    else {
+      ConveyorSubsystem.horizontalMotor.set(0);
+      ConveyorSubsystem.verticalMotor.set(0);
+    }
+
     // suck balls in with XB_RT (must be positive)
-    ConveyorSubsystem.verticalMotor.set(Math.abs(Constants.XboxRT() / Constants.kSpeedConveyorDecrement));
-    ConveyorSubsystem.horizontalMotor.set(Math.abs(Constants.XboxRT() / Constants.kSpeedConveyorDecrement));
+    //ConveyorSubsystem.verticalMotor.set(Math.abs(Constants.XboxRT() / Constants.kSpeedConveyorDecrement));
+    //ConveyorSubsystem.horizontalMotor.set(Math.abs(Constants.XboxRT() / Constants.kSpeedConveyorDecrement));
 
     // push balls out with XB_LT (must be negative)
-    double val = Constants.XboxLT() / Constants.kSpeedConveyorDecrement;
+    /*double val = Constants.XboxLT() / Constants.kSpeedConveyorDecrement;
     if (val >= 0) {
       val = -val;
     }
 
     ConveyorSubsystem.verticalMotor.set(val);
-    ConveyorSubsystem.horizontalMotor.set(val);
+    ConveyorSubsystem.horizontalMotor.set(val);*/
 
 
 
 
     // waiting and pickupMotor is spinning to receive balls.
-    if (ConveyorSubsystem.State == Stage.Wait && IntakeSubsystem.intakeMotor.get() > 0) {
+    /*if (ConveyorSubsystem.State == Stage.Wait && IntakeSubsystem.intakeMotor.get() > 0) {
       ConveyorSubsystem.State = Stage.First;
     }
 
@@ -59,10 +68,10 @@ public class ConveyorCommand extends CommandBase {
       ConveyorSubsystem.verticalMotor.set(0);
 
       ConveyorSubsystem.State = Stage.Second;
-    }
+    }*/
 
     
-    while (true) {
+    /*while (true) {
       // pickupMotor is sucking in balls.
       if (IntakeSubsystem.intakeMotor.get() > 0) {
         if (ConveyorSubsystem.State == Stage.First) {
@@ -84,7 +93,7 @@ public class ConveyorCommand extends CommandBase {
           }
         }
       }
-    }
+    }*/
   }
 
   // Called once the command ends or is interrupted.
