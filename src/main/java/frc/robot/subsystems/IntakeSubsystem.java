@@ -16,6 +16,9 @@ public class IntakeSubsystem extends SubsystemBase {
   public IntakeSubsystem() {
     intakeMotor = new CANSparkMax(Constants.kCIntake, MotorType.kBrushless);
     sol = new DoubleSolenoid(Constants.kPIntakeFwd, Constants.kPIntakeRev);
+
+    intakeMotor.restoreFactoryDefaults();
+    intakeMotor.setInverted(false);
   }
 
   @Override

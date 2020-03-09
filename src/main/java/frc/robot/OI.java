@@ -26,16 +26,44 @@ public final class OI {
 		return XboxControl.getYButton();
 	}
 
-	public static boolean getStickRightAxis() {
+	public static boolean getBButton() {
+		return XboxControl.getBButton();
+	}
+
+	public static boolean getStickRightAxisUp() {
 		return XboxControl.getY(Hand.kRight) > 0.5;
+	}
+
+	public static boolean getStickRightAxisDown() {
+		return XboxControl.getY(Hand.kRight) < -0.5;
+	}
+
+	public static boolean getDpadUp() {
+		return XboxControl.getPOV() == 0;
+	}
+
+	public static boolean getDpadRight() {
+		return XboxControl.getPOV() == 90;
 	}
 
 	public static boolean getDpadDown() {
 		return XboxControl.getPOV() == 180;
 	}
 
-	public static boolean getStickLeftAxis() {
+	public static boolean getDpadLeft() {
+		return XboxControl.getPOV() == 360;
+	}
+
+	public static boolean getStickLeftAxisUp() {
 		return XboxControl.getY(Hand.kLeft) > 0.5;
+	}
+	
+	public static boolean getStickLeftAxisDown() {
+		return XboxControl.getY(Hand.kLeft) < -0.5;
+	}
+
+	public static boolean getBackButton() {
+		return XboxControl.getBackButton();
 	}
 
 	public static boolean getBumperLeft() {
@@ -46,6 +74,10 @@ public final class OI {
 		return XboxControl.getTriggerAxis(Hand.kLeft) > 0.5;
 	}
 
+	public static boolean getStartButton() {
+		return XboxControl.getStartButton();
+	}
+
 	public static boolean getTriggerRightAxis() {
 		return XboxControl.getTriggerAxis(Hand.kRight) > 0.5;
 	}
@@ -54,8 +86,16 @@ public final class OI {
 		return XboxControl.getBumper(Hand.kRight);
 	}
 
-	
+
 	public static Joystick JoystickControl = new Joystick(1);
+
+	public static double getJoystickY() {
+		return JoystickControl.getY();
+	}
+
+	public static double getJoystickZ() {
+		return JoystickControl.getZ();
+	}
 
 	public static boolean getJoystickLowGear() {
 		return JoystickControl.getRawButton(3);

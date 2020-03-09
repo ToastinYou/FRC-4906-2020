@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import frc.robot.Constants;
+import frc.robot.OI;
 import frc.robot.subsystems.ColorSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
@@ -25,12 +26,12 @@ public class ColorCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    /*if (Constants.XboxControl.getAButton()) {
-      ColorSubsystem.ColorMotorController.set(0.2);
+    if (OI.getDpadRight()) {
+      ColorSubsystem.ColorMotorController.set(Constants.kSpeedColor);
     }
     else {
       ColorSubsystem.ColorMotorController.set(0);
-    }*/
+    }
   }
 
   // Called once the command ends or is interrupted.

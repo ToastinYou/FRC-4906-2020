@@ -2,6 +2,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
+import frc.robot.OI;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import frc.robot.subsystems.IntakeSubsystem;
 
@@ -25,27 +26,26 @@ public class IntakeCommand extends CommandBase {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-      if (Constants.XboxControl.getXButton()) {
+      if (OI.getYButton()) {
         IntakeSubsystem.intakeMotor.set(Constants.kSpeedIntakeFwd);
       }
-      /*else if (Constants.XboxControl.getBButton()) {
+      else if (OI.getXButton()) {
         IntakeSubsystem.intakeMotor.set(Constants.kSpeedIntakeRev);
-      }*/
+      }
       else {
         IntakeSubsystem.intakeMotor.set(0);
       }
 
-      // DPAD RIGHT
-      /*if (Constants.XboxControl.getPOV(90) != 1) {
+      if (OI.getDpadDown()) {
+        intakePiston = !intakePiston;
+
         if (!intakePiston) {
-          intakePiston = true;
-          IntakeSubsystem.sol.set(DoubleSolenoid.Value.kForward);
-        }
-        else {
-          intakePiston = false;
           IntakeSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
         }
-      }*/
+        else {
+          IntakeSubsystem.sol.set(DoubleSolenoid.Value.kForward);
+        }
+      }
     }
   
     // Called once the command ends or is interrupted.

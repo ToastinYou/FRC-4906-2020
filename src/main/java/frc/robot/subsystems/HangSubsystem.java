@@ -19,11 +19,9 @@ public class HangSubsystem extends SubsystemBase {
 
     hangMotorLeft.restoreFactoryDefaults();
     hangMotorRight.restoreFactoryDefaults();
-    //hangMotorLeft.setInverted(true);
-    //hangMotorLeft.follow(hangMotorRight);
+    
     hangMotorLeft.setInverted(false);
-
-    //hangMotorRight.follow(hangMotorLeft);
+    hangMotorRight.setInverted(false);
 
     //topLimit = new DigitalInput(Constants.kDHangTop);
     //bottomLimit = new DigitalInput(Constants.kDHangBottom);

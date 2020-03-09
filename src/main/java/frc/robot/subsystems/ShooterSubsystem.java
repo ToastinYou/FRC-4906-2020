@@ -13,6 +13,10 @@ public class ShooterSubsystem extends SubsystemBase {
     leftMotor = new WPI_TalonFX(Constants.kCShooterLeft);
     rightMotor = new WPI_TalonFX(Constants.kCShooterRight);
     
+    leftMotor.configFactoryDefault();
+    rightMotor.configFactoryDefault();
+
+    leftMotor.setInverted(false);
     rightMotor.setInverted(true);
 
     leftMotor.follow(rightMotor);

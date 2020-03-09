@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import frc.robot.Constants;
+import frc.robot.OI;
 import frc.robot.subsystems.ConveyorSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ConveyorSubsystem.Stage;
@@ -22,9 +23,13 @@ public class ConveyorCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (Constants.XboxControl.getBButton()) {
-      ConveyorSubsystem.horizontalMotor.set(0.8);
-      ConveyorSubsystem.verticalMotor.set(-0.8);
+    if (OI.getTriggerRightAxis()) {
+      ConveyorSubsystem.horizontalMotor.set(Constants.kSpeedConveyorFwd);
+      ConveyorSubsystem.verticalMotor.set(Constants.kSpeedConveyorRev);
+    }
+    else if (OI.getTriggerLeftAxis()) {
+      ConveyorSubsystem.horizontalMotor.set(Constants.kSpeedConveyorRev);
+      ConveyorSubsystem.verticalMotor.set(Constants.kSpeedConveyorFwd);
     }
     else {
       ConveyorSubsystem.horizontalMotor.set(0);

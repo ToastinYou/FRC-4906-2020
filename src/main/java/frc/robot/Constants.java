@@ -18,8 +18,6 @@ package frc.robot;
 public final class Constants {
 	public static boolean LimeLightControlling = false;
     
-	//public static CANSparkMax ColorMotorController = new CANSparkMax(Constants.kCColor, MotorType.kBrushless);
-
 	// Controller Area Network (CAN)
 	public static int kCDriveRRear = 0;	// Drive Right Rear
 	public static int kCDriveRFront = 1; // Drive Right Front
@@ -62,9 +60,9 @@ public final class Constants {
 	public static double kSpeedHangFwd = 0.4; // Hang Forward
 	public static double kSpeedHangRev = -0.4; // Hang Reverse
 	public static double kSpeedDriveDecrement = 2; // Speed to divide drive by.
-	public static double kSpeedConveyorDecrement = 2; // Speed to divide conveyor by.
-	public static double kSpeedConveyorFwd = -0.6; // Conveyor Forward
-	public static double kSpeedConveyorRev = 0.4; // Conveyor Reverse
+	public static double kSpeedConveyorFwd = 0.6; // Conveyor Forward
+	public static double kSpeedConveyorRev = -0.4; // Conveyor Reverse
+	public static double kSpeedColor = 0.2; // Color Spinner
 
 	// Time of Flight
 	public static int kTOFHalfDist = 101; // Time of Flight distance halfway (millimeters).

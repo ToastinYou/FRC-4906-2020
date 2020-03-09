@@ -51,7 +51,7 @@ public class Robot extends TimedRobot {
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
 
-    /*if (Constants.XboxControl.getYButton()) {
+    if (OI.getJoystickAutomation()) {
       // turn on LED to detect reflective tape
       LimeLight.setLedMode(LimeLight.LightMode.eOn);
       Constants.LimeLightControlling = true;
@@ -61,8 +61,10 @@ public class Robot extends TimedRobot {
       double headingError = LimeLight.getTx();
       double steeringAdjust = Kp * headingError;
 
-      //DriveSubsystem.left = Constants.XboxLY() + steeringAdjust;
-      //DriveSubsystem.right = Constants.XboxRY() - steeringAdjust;
+      DriveSubsystem.left = OI.getJoystickZ() + steeringAdjust;
+      DriveSubsystem.right = OI.getJoystickZ() - steeringAdjust;
+
+      DriveSubsystem.dDrive.arcadeDrive(OI.getJoystickY(), DriveSubsystem.left + DriveSubsystem.right);
 
       // foreseeing a problem... if drivebase is set to arcade drive, driver will not be able to go forward/backward due to this switching it to tank drive.
       //DriveSubsystem.dDrive.tankDrive(DriveSubsystem.left, DriveSubsystem.right);
@@ -73,9 +75,9 @@ public class Robot extends TimedRobot {
     }
     else {
       Constants.LimeLightControlling = false;
-      //DriveSubsystem.left = 0;
-      //DriveSubsystem.right = 0;
-    }*/
+      DriveSubsystem.left = 0;
+      DriveSubsystem.right = 0;
+    }
   }
 
   /**

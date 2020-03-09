@@ -18,6 +18,7 @@ public class ColorSubsystem extends SubsystemBase {
 
   public ColorSubsystem() {
     ColorMotorController.restoreFactoryDefaults();
+    ColorMotorController.setInverted(false);
   }
 
   @Override

@@ -1,6 +1,5 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -17,10 +16,20 @@ public class DriveSubsystem extends SubsystemBase {
     WPI_TalonFX rightFrontMotor = new WPI_TalonFX(Constants.kCDriveRFront);
     WPI_TalonFX rightRearMotor = new WPI_TalonFX(Constants.kCDriveRRear);
 
+    leftFrontMotor.configFactoryDefault();
+    leftRearMotor.configFactoryDefault();
+    rightFrontMotor.configFactoryDefault();
+    rightRearMotor.configFactoryDefault();
+
+    leftFrontMotor.setInverted(false);
+    leftRearMotor.setInverted(false);
+    rightFrontMotor.setInverted(false);
+    rightRearMotor.setInverted(false);
+
     dDrive = new DifferentialDrive(leftFrontMotor, rightFrontMotor);
 
-    leftRearMotor.follow(leftFrontMotor); // needed?
-    rightRearMotor.follow(rightFrontMotor); // needed?
+    leftRearMotor.follow(leftFrontMotor);
+    rightRearMotor.follow(rightFrontMotor);
   }
 
   @Override

@@ -3,6 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
+import frc.robot.OI;
 import frc.robot.subsystems.ShooterSubsystem;
 
 public class ShooterCommand extends CommandBase {
@@ -19,14 +20,14 @@ public class ShooterCommand extends CommandBase {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-      if (Constants.XboxControl.getYButton()) {
+      if (OI.getBumperRight()) {
         ShooterSubsystem.leftMotor.set(Constants.kSpeedShooterFwd);
       }
-      /*else if (Constants.XboxControl.getBumper(Hand.kRight)) {
+      else if (OI.getBackButton()) {
         ShooterSubsystem.leftMotor.set(Constants.kSpeedShooterRev);
-      }*/
+      }
       else {
-        ShooterSubsystem.leftMotor.set(0);
+        ShooterSubsystem.leftMotor.set(0); // is this needed?
       }
     }
   

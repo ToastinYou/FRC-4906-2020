@@ -29,8 +29,14 @@ public class ConveyorSubsystem extends SubsystemBase {
     horizontalMotor = new WPI_VictorSPX(Constants.kCConveyorHoriz);
     verticalMotor = new WPI_VictorSPX(Constants.kCConveyorVert);
 
-    tof1 = new TimeOfFlight(99);
-    //tof2 = new TimeOfFlight(Constants.CANUNKWN);
+    horizontalMotor.configFactoryDefault();
+    verticalMotor.configFactoryDefault();
+
+    horizontalMotor.setInverted(false);
+    verticalMotor.setInverted(false);
+
+    tof1 = new TimeOfFlight(0);
+    tof2 = new TimeOfFlight(1);
 
     State = Stage.Wait;
   }

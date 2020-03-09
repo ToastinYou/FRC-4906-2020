@@ -1,8 +1,8 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
+import frc.robot.OI;
 import frc.robot.subsystems.HangSubsystem;
 
 public class HangCommand extends CommandBase {
@@ -19,7 +19,11 @@ public class HangCommand extends CommandBase {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-      if (Constants.XboxControl.getAButton()) {
+      if (OI.getStickLeftAxisUp()) {
+        HangSubsystem.hangMotorLeft.set(Constants.kSpeedHangRev);
+        HangSubsystem.hangMotorRight.set(Constants.kSpeedHangFwd);
+      }
+      else if (OI.getStickLeftAxisDown()) {
         HangSubsystem.hangMotorLeft.set(Constants.kSpeedHangFwd);
         HangSubsystem.hangMotorRight.set(Constants.kSpeedHangRev);
       }
@@ -27,8 +31,6 @@ public class HangCommand extends CommandBase {
         HangSubsystem.hangMotorLeft.set(0);
         HangSubsystem.hangMotorRight.set(0);
       }
-
-      //HangSubsystem.hangMotorLeft.set(new XboxController(0).getRawAxis(5));
 
       // DPAD UP
       //if (/*Constants.XboxControl.getPOV(0) != -1 && */Constants.XboxLY() > 0) {// && !HangSubsystem.topLimit.get()) {

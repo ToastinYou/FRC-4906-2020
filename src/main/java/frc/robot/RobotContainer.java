@@ -9,10 +9,6 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.XboxController.Axis;
-import edu.wpi.first.wpilibj2.command.button.Button;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import edu.wpi.first.wpilibj2.command.button.POVButton;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -32,7 +28,7 @@ public class RobotContainer {
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final HangSubsystem m_hangSubsystem = new HangSubsystem();
   private final IntakeSubsystem m_intakeSubsystem = new IntakeSubsystem();
-  //private final ShiftSubsystem m_shiftSubsystem = new ShiftSubsystem();
+  private final ShiftSubsystem m_shiftSubsystem = new ShiftSubsystem();
   private final ShooterSubsystem m_shooterSubsystem = new ShooterSubsystem();
 
   private final ColorCommand m_colorCommand = new ColorCommand(m_colorSubsystem);
@@ -41,7 +37,7 @@ public class RobotContainer {
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   private final HangCommand m_hangCommand = new HangCommand(m_hangSubsystem);
   private final IntakeCommand m_intakeCommand = new IntakeCommand(m_intakeSubsystem);
-  //private final ShiftCommand m_shiftCommand = new ShiftCommand(m_shiftSubsystem);
+  private final ShiftCommand m_shiftCommand = new ShiftCommand(m_shiftSubsystem);
   private final ShooterCommand m_shooterCommand = new ShooterCommand(m_shooterSubsystem);
 
   /**
@@ -60,7 +56,7 @@ public class RobotContainer {
     m_driveSubsystem.setDefaultCommand(m_driveCommand);
     m_hangSubsystem.setDefaultCommand(m_hangCommand);
     m_intakeSubsystem.setDefaultCommand(m_intakeCommand);
-    //m_shiftSubsystem.setDefaultCommand(m_shiftCommand);
+    m_shiftSubsystem.setDefaultCommand(m_shiftCommand);
     m_shooterSubsystem.setDefaultCommand(m_shooterCommand);
 
     m_colorCommand.schedule();
@@ -68,7 +64,7 @@ public class RobotContainer {
     m_driveCommand.schedule();
     m_hangCommand.schedule();
     m_intakeCommand.schedule();
-    //m_shiftCommand.schedule();
+    m_shiftCommand.schedule();
     m_shooterCommand.schedule();
   }
 
@@ -79,51 +75,6 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    Button aButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kA.value);
-    Button xButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kX.value);
-    Button yButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kY.value);
-    Button bButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kB.value);
-    
-    // 1
-    Button stickRightButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kStickRight.value);
-
-    // 2
-    Button dpadUp = new POVButton(Constants.XboxControl, 0);
-    Button dpadRight = new POVButton(Constants.XboxControl, 90);
-    Button dpadDown = new POVButton(Constants.XboxControl, 180);
-    Button dpadLeft = new POVButton(Constants.XboxControl, 270);
-
-    // 3
-    Button stickLeftButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kStickLeft.value);
-    
-    // 4
-    Button backButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kBack.value);
-    
-    // 5
-    Button bumperLeftButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kBumperLeft.value);
-
-    // 6 -- left trigger
-    //Axis triggerLeftButton = new Axis(Constants.XboxControl, XboxController.Axis.kLeftTrigger);
-
-    // 7 -- XBOX home
-    
-    // 8
-    Button startButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kStart.value);
-    
-    // 9 -- right trigger
-    //Axis triggerRightButton = new 
-
-    // 10
-    Button bumperRightButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kBumperRight.value);
-
-    //aButton.whenPressed(command);
-
-    // RSTICK button on XB360 to toggle arcade/tank drive.
-    //stickRightButton.whenPressed(m_driveCommand);
-    // TODO: Select second button on JOYSTICK for toggling drives.
-
-    // BACK button on XB360 to toggle low/high gear.
-    //backButton.whenPressed(new ShiftCommand(m_shiftSubsystem));
   }
 
 
