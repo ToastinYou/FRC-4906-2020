@@ -7,12 +7,6 @@
 
 package frc.robot;
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.XboxController;
-
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants.  This class should not be used for any other purpose.  All constants should be
@@ -22,49 +16,11 @@ import edu.wpi.first.wpilibj.XboxController;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-	public static XboxController XboxControl = new XboxController(0);
-	public static double XboxLY() {
-		return XboxControl.getRawAxis(1);
-	}
-	public static double XboxRY() {
-		return XboxControl.getRawAxis(5);
-	}
-	public static double XboxLT() {
-		double trigger = XboxControl.getRawAxis(3);
-
-		// positive val = left trigger
-		if (trigger > 0.5) {
-			return trigger;
-		}
-
-		// not left trigger, return 0.
-		return 0;
-	}
-	public static double XboxRT() {
-		double trigger = XboxControl.getRawAxis(3);
-
-		// negative val = right trigger
-		if (trigger < -0.5) {
-			return trigger;
-		}
-		
-		// not right trigger, return 0.
-		return 0;
-	}
-
-    public static Joystick JoystickControl = new Joystick(1);
-	public static double JoystickY() {
-		return -JoystickControl.getRawAxis(1);
-	}
-	public static double JoystickZ() {
-		return JoystickControl.getRawAxis(2);
-	}
-
 	public static boolean LimeLightControlling = false;
     
 	//public static CANSparkMax ColorMotorController = new CANSparkMax(Constants.kCColor, MotorType.kBrushless);
 
-	// (CAN)
+	// Controller Area Network (CAN)
 	public static int kCDriveRRear = 0;	// Drive Right Rear
 	public static int kCDriveRFront = 1; // Drive Right Front
 	public static int kCHangRight = 2; // Hang Right

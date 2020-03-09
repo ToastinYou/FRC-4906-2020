@@ -9,6 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.XboxController.Axis;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.POVButton;
@@ -78,40 +79,42 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    final Button aButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kA.value);
-    final Button xButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kX.value);
-    final Button yButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kY.value);
-    final Button bButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kB.value);
+    Button aButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kA.value);
+    Button xButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kX.value);
+    Button yButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kY.value);
+    Button bButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kB.value);
     
     // 1
-    final Button stickRightButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kStickRight.value);
+    Button stickRightButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kStickRight.value);
 
     // 2
-    final Button dpadUp = new POVButton(Constants.XboxControl, 0);
-    final Button dpadRight = new POVButton(Constants.XboxControl, 90);
-    final Button dpadDown = new POVButton(Constants.XboxControl, 180);
-    final Button dpadLeft = new POVButton(Constants.XboxControl, 270);
+    Button dpadUp = new POVButton(Constants.XboxControl, 0);
+    Button dpadRight = new POVButton(Constants.XboxControl, 90);
+    Button dpadDown = new POVButton(Constants.XboxControl, 180);
+    Button dpadLeft = new POVButton(Constants.XboxControl, 270);
 
     // 3
-    final Button stickLeftButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kStickLeft.value);
+    Button stickLeftButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kStickLeft.value);
     
     // 4
-    final Button backButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kBack.value);
+    Button backButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kBack.value);
     
     // 5
-    final Button bumperLeftButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kBumperLeft.value);
+    Button bumperLeftButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kBumperLeft.value);
 
     // 6 -- left trigger
+    //Axis triggerLeftButton = new Axis(Constants.XboxControl, XboxController.Axis.kLeftTrigger);
 
     // 7 -- XBOX home
     
     // 8
-    final Button startButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kStart.value);
+    Button startButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kStart.value);
     
     // 9 -- right trigger
+    //Axis triggerRightButton = new 
 
     // 10
-    final Button bumperRightButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kBumperRight.value);
+    Button bumperRightButton = new JoystickButton(Constants.XboxControl, XboxController.Button.kBumperRight.value);
 
     //aButton.whenPressed(command);
 
