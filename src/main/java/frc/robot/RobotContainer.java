@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.*;
@@ -20,6 +22,8 @@ import edu.wpi.first.wpilibj2.command.Command;
  * (including subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
+  private UsbCamera cam;
+
   // The robot's subsystems and commands are defined here...
   private final AirSubsystem m_airSubsystem = new AirSubsystem();
   private final ColorSubsystem m_colorSubsystem = new ColorSubsystem();
@@ -52,6 +56,9 @@ public class RobotContainer {
     // default driver mode for limelight camera w/LEDs off.
     LimeLight.setCameraMode(LimeLight.CameraMode.eDriver);
     LimeLight.setLedMode(LimeLight.LightMode.eOff);
+
+    cam = CameraServer.getInstance().startAutomaticCapture();
+    cam.setResolution(720, 480); // might need to be lowered
     
     m_colorSubsystem.setDefaultCommand(m_colorCommand);
     m_conveyorSubsystem.setDefaultCommand(m_conveyorCommand);
