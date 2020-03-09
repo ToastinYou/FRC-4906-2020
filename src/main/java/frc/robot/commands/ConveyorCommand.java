@@ -23,11 +23,11 @@ public class ConveyorCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (OI.getTriggerRightAxis()) {
+    if (OI.getTriggerRightAxisPressed()) {
       ConveyorSubsystem.horizontalMotor.set(Constants.kSpeedConveyorFwd);
       ConveyorSubsystem.verticalMotor.set(Constants.kSpeedConveyorRev);
     }
-    else if (OI.getTriggerLeftAxis()) {
+    else if (OI.getTriggerLeftAxisPressed()) {
       ConveyorSubsystem.horizontalMotor.set(Constants.kSpeedConveyorRev);
       ConveyorSubsystem.verticalMotor.set(Constants.kSpeedConveyorFwd);
     }

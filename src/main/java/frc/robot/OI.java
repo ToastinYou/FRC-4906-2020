@@ -70,16 +70,38 @@ public final class OI {
 		return XboxControl.getBumper(Hand.kLeft);
 	}
 
-	public static boolean getTriggerLeftAxis() {
+	public static boolean getTriggerLeftAxisPressed() {
 		return XboxControl.getTriggerAxis(Hand.kLeft) > 0.5;
+	}
+
+	public static double getTriggerLeftAxis() {
+		double leftTriggerAxis = XboxControl.getTriggerAxis(Hand.kLeft);
+
+		if (leftTriggerAxis > 0.5)
+		{
+			return leftTriggerAxis;
+		}
+
+		return 0;
 	}
 
 	public static boolean getStartButton() {
 		return XboxControl.getStartButton();
 	}
 
-	public static boolean getTriggerRightAxis() {
+	public static boolean getTriggerRightAxisPressed() {
 		return XboxControl.getTriggerAxis(Hand.kRight) > 0.5;
+	}
+
+	public static double getTriggerRightAxis() {
+		double rightTriggerAxis = XboxControl.getTriggerAxis(Hand.kRight);
+		
+		if (rightTriggerAxis > 0.5)
+		{
+			return rightTriggerAxis;
+		}
+
+		return 0;
 	}
 
 	public static boolean getBumperRight() {
