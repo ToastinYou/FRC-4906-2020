@@ -51,7 +51,7 @@ public final class OI {
 	}
 
 	public static boolean getDpadLeft() {
-		return XboxControl.getPOV() == 360;
+		return XboxControl.getPOV() == 270;
 	}
 
 	public static boolean getStickLeftAxisUp() {
