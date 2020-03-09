@@ -46,6 +46,8 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+    
+    ColorSensor.Initialize();
 
     // default driver mode for limelight camera w/LEDs off.
     LimeLight.setCameraMode(LimeLight.CameraMode.eDriver);

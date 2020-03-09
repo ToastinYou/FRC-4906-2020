@@ -32,8 +32,6 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
-    
-    ColorSensor.Initialize();
   }
 
   /**
@@ -55,7 +53,7 @@ public class Robot extends TimedRobot {
       // turn on LED to detect reflective tape
       LimeLight.setLedMode(LimeLight.LightMode.eOn);
       Constants.LimeLightControlling = true;
-
+      
       double Kp = -0.1;
 
       double headingError = LimeLight.getTx();
