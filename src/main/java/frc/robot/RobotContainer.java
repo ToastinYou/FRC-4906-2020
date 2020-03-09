@@ -22,7 +22,7 @@ import edu.wpi.first.wpilibj2.command.Command;
  * (including subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-  private UsbCamera cam;
+  //private UsbCamera cam;
 
   // The robot's subsystems and commands are defined here...
   private final AirSubsystem m_airSubsystem = new AirSubsystem();
@@ -51,14 +51,14 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
     
-    ColorSensor.Initialize();
+    /*ColorSensor.Initialize();
 
     // default driver mode for limelight camera w/LEDs off.
     LimeLight.setCameraMode(LimeLight.CameraMode.eDriver);
     LimeLight.setLedMode(LimeLight.LightMode.eOff);
 
     cam = CameraServer.getInstance().startAutomaticCapture();
-    cam.setResolution(720, 480); // might need to be lowered
+    cam.setResolution(720, 480); // might need to be lowered*/
     
     m_colorSubsystem.setDefaultCommand(m_colorCommand);
     m_conveyorSubsystem.setDefaultCommand(m_conveyorCommand);

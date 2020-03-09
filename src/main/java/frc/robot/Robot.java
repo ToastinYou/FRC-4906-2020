@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -22,6 +24,8 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
 
   private RobotContainer m_robotContainer;
+
+  private UsbCamera cam;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -82,7 +86,15 @@ public class Robot extends TimedRobot {
    * This function is called once each time the robot enters Disabled mode.
    */
   @Override
-  public void disabledInit() {
+  public void disabledInit() {    
+    ColorSensor.Initialize();
+
+    // default driver mode for limelight camera w/LEDs off.
+    LimeLight.setCameraMode(LimeLight.CameraMode.eDriver);
+    LimeLight.setLedMode(LimeLight.LightMode.eOff);
+
+    cam = CameraServer.getInstance().startAutomaticCapture();
+    cam.setResolution(720, 480); // might need to be lowered
   }
 
   @Override
