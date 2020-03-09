@@ -21,10 +21,10 @@ public class DriveSubsystem extends SubsystemBase {
     rightFrontMotor.configFactoryDefault();
     rightRearMotor.configFactoryDefault();
 
-    leftFrontMotor.setInverted(false);
-    leftRearMotor.setInverted(false);
-    rightFrontMotor.setInverted(false);
-    rightRearMotor.setInverted(false);
+    leftFrontMotor.setInverted(true);
+    leftRearMotor.setInverted(true);
+    rightFrontMotor.setInverted(true);
+    rightRearMotor.setInverted(true);
 
     dDrive = new DifferentialDrive(leftFrontMotor, rightFrontMotor);
 
