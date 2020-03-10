@@ -22,7 +22,7 @@ public class DriveCommand extends CommandBase {
       // when limelight is controlling, it will setup driving automatically.
       if (!Constants.LimeLightControlling) {
         // arcade drive on joystick
-        DriveSubsystem.dDrive.arcadeDrive(OI.getJoystickY() / Constants.kSpeedDriveDecrement, OI.getJoystickZ() / Constants.kSpeedDriveDecrement);
+        DriveSubsystem.dDrive.arcadeDrive(OI.getJoystickY() / Constants.kSpeedDriveDecrement, -(OI.getJoystickZ() / Constants.kSpeedDriveDecrement));
       }
     }
   
