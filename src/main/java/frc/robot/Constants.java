@@ -46,8 +46,8 @@ public final class Constants {
 	public static int kPIntakeRev = 1;
 	public static int kPShiftFwd = 2;
 	public static int kPShiftRev = 3;
-	public static int kPHangFwd = 4;
-	public static int kPHangRev = 5;
+	public static int kPHangFwd = 6;
+	public static int kPHangRev = 7;
 
 	// Digital Input Output (DIO)
 	public static int kDHangTop = 0; // Hang Top Limit Switch

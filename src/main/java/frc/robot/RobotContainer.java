@@ -39,6 +39,7 @@ public class RobotContainer {
   private final ConveyorCommand m_conveyorCommand = new ConveyorCommand(m_conveyorSubsystem);
   private final DriveCommand m_driveCommand = new DriveCommand(m_driveSubsystem);
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  private final HangCommand m_hangAirBrakeCommand = new HangCommand(m_hangSubsystem);
   private final HangCommand m_hangCommand = new HangCommand(m_hangSubsystem);
   private final IntakeCommand m_intakeCommand = new IntakeCommand(m_intakeSubsystem);
   private final IntakeCommand m_intakePistonCommand = new IntakeCommand(m_intakeSubsystem);
@@ -86,6 +87,7 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     OI.getDpadDownObject().whenReleased(m_intakePistonCommand);
+    OI.getStartButtonObject().whenReleased(m_hangAirBrakeCommand);
   }
 
 
