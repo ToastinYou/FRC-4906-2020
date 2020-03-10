@@ -6,8 +6,7 @@ import frc.robot.Constants;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
 public class ShooterSubsystem extends SubsystemBase {
-  public static WPI_TalonFX leftMotor;
-  private WPI_TalonFX rightMotor;
+  public static WPI_TalonFX leftMotor, rightMotor;
 
   public ShooterSubsystem() {
     leftMotor = new WPI_TalonFX(Constants.kCShooterLeft);

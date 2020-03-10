@@ -21,13 +21,13 @@ public class ShooterCommand extends CommandBase {
     @Override
     public void execute() {
       if (OI.getBumperRight()) {
-        ShooterSubsystem.leftMotor.set(Constants.kSpeedShooterFwd);
+        ShooterSubsystem.rightMotor.set(Constants.kSpeedShooterFwd);
       }
       else if (OI.getBackButton()) {
-        ShooterSubsystem.leftMotor.set(Constants.kSpeedShooterRev);
+        ShooterSubsystem.rightMotor.set(Constants.kSpeedShooterRev);
       }
       else {
-        ShooterSubsystem.leftMotor.set(0); // is this needed?
+        ShooterSubsystem.rightMotor.set(0); // is this needed?
       }
     }
   
