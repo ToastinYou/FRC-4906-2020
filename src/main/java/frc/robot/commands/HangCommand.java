@@ -1,5 +1,7 @@
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.OI;
@@ -14,22 +16,26 @@ public class HangCommand extends CommandBase {
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
+      // default to inward
+      HangSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
     }
   
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-      if (OI.getStickLeftAxisUp() && HangSubsystem.topLimit.get()) {
-        HangSubsystem.hangMotorLeft.set(Constants.kSpeedHangRev);
-        HangSubsystem.hangMotorRight.set(Constants.kSpeedHangFwd);
-      }
-      else if (OI.getStickLeftAxisDown() && HangSubsystem.bottomLimit.get()) {
-        HangSubsystem.hangMotorLeft.set(Constants.kSpeedHangFwd);
-        HangSubsystem.hangMotorRight.set(Constants.kSpeedHangRev);
-      }
-      else {
-        HangSubsystem.hangMotorLeft.set(0);
-        HangSubsystem.hangMotorRight.set(0);
+      if (HangSubsystem.sol.get() == Value.kReverse) {
+        if (OI.getStickLeftAxisUp() && HangSubsystem.topLimit.get()) {
+          HangSubsystem.hangMotorLeft.set(Constants.kSpeedHangRev);
+          HangSubsystem.hangMotorRight.set(Constants.kSpeedHangFwd);
+        }
+        else if (OI.getStickLeftAxisDown() && HangSubsystem.bottomLimit.get()) {
+          HangSubsystem.hangMotorLeft.set(Constants.kSpeedHangFwd);
+          HangSubsystem.hangMotorRight.set(Constants.kSpeedHangRev);
+        }
+        else {
+          HangSubsystem.hangMotorLeft.set(0);
+          HangSubsystem.hangMotorRight.set(0);
+        }
       }
     }
   

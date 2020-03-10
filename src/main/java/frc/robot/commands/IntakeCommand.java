@@ -18,7 +18,7 @@ public class IntakeCommand extends CommandBase {
     @Override
     public void initialize() {
       // default pickup to upward
-      //IntakeSubsystem.sol.set(DoubleSolenoid.Value.kForward);
+      IntakeSubsystem.sol.set(DoubleSolenoid.Value.kForward);
     }
   
     // Called every time the scheduler runs while the command is scheduled.
@@ -30,9 +30,9 @@ public class IntakeCommand extends CommandBase {
       else if (OI.getXButton()) {
         IntakeSubsystem.intakeMotor.set(Constants.kSpeedIntakeRev);
       }
-      else {
+      /*else {
         IntakeSubsystem.intakeMotor.set(0);
-      }
+      }*/
     }
   
     // Called once the command ends or is interrupted.

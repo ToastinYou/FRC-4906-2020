@@ -30,7 +30,7 @@ public final class OI {
 	}
 
 	public static boolean getBButton() {
-		return XboxControl.getBButton();
+		return XboxControl.getBButtonReleased();
 	}
 
 	public static boolean getStickRightAxisUp() {
@@ -93,7 +93,7 @@ public final class OI {
 	}
 
 	public static boolean getStartButton() {
-		return XboxControl.getStartButton();
+		return XboxControl.getStartButtonReleased();
 	}
 
 	public static Button getStartButtonObject() {

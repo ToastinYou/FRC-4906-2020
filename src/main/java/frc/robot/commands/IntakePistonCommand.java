@@ -7,19 +7,19 @@ import frc.robot.subsystems.IntakeSubsystem;
 // power cell pickup
 
 public class IntakePistonCommand extends CommandBase {
-    private boolean intakePiston;
+    private static boolean intakePiston;
   
     public IntakePistonCommand(IntakeSubsystem subsystem) {
       // Use addRequirements() here to declare subsystem dependencies.
       addRequirements(subsystem);
-
-      // default pickup to upward
-      IntakeSubsystem.sol.set(DoubleSolenoid.Value.kForward);
     }
   
     // Called when the command is initially scheduled.
     @Override
-    public void initialize() {      
+    public void initialize() {
+    }
+
+    public static void ToggleIntakePiston() {
       intakePiston = !intakePiston;
 
       if (!intakePiston) {
@@ -28,6 +28,7 @@ public class IntakePistonCommand extends CommandBase {
       else {
         IntakeSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
       }
+
     }
   
     // Called every time the scheduler runs while the command is scheduled.

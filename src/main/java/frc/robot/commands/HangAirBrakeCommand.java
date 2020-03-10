@@ -5,25 +5,25 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.HangSubsystem;
 
 public class HangAirBrakeCommand extends CommandBase {
-    private boolean airBrake;
+    private static boolean airBrake;
     public HangAirBrakeCommand(HangSubsystem subsystem) {
       // Use addRequirements() here to declare subsystem dependencies.
       addRequirements(subsystem);
-
-      // default to upward
-      HangSubsystem.sol.set(DoubleSolenoid.Value.kForward);
     }
   
     // Called when the command is initially scheduled.
     @Override
-    public void initialize() {  
+    public void initialize() {
+    }
+
+    public static void ToggleAirBrake() {  
       airBrake = !airBrake;
 
       if (!airBrake) {
-        HangSubsystem.sol.set(DoubleSolenoid.Value.kForward);
+        HangSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
       }
       else {
-        HangSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
+        HangSubsystem.sol.set(DoubleSolenoid.Value.kForward);
       }
     }
   

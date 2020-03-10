@@ -12,6 +12,8 @@ import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.commands.HangAirBrakeCommand;
+import frc.robot.commands.IntakePistonCommand;
 import frc.robot.subsystems.DriveSubsystem;
 
 /**
@@ -89,6 +91,14 @@ public class Robot extends TimedRobot {
       DriveSubsystem.left = 0;
       DriveSubsystem.right = 0;
     }
+
+    if (OI.getStartButton()) {
+      HangAirBrakeCommand.ToggleAirBrake();
+    }
+
+    if (OI.getBButton()) {
+      IntakePistonCommand.ToggleIntakePiston();
+    }
   }
 
   /**
@@ -100,7 +110,6 @@ public class Robot extends TimedRobot {
 
   @Override
   public void disabledPeriodic() {
-    LimeLight.setLedMode(LimeLight.LightMode.eOff);
   }
 
   /**
