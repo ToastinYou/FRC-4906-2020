@@ -36,6 +36,15 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
+    
+    ColorSensor.Initialize();
+
+    // default driver mode for limelight camera w/LEDs off.
+    LimeLight.setCameraMode(LimeLight.CameraMode.eDriver);
+    LimeLight.setLedMode(LimeLight.LightMode.eOff);
+
+    cam = CameraServer.getInstance().startAutomaticCapture();
+    cam.setResolution(720, 480); // might need to be lowered
   }
 
   /**
@@ -86,19 +95,12 @@ public class Robot extends TimedRobot {
    * This function is called once each time the robot enters Disabled mode.
    */
   @Override
-  public void disabledInit() {    
-    ColorSensor.Initialize();
-
-    // default driver mode for limelight camera w/LEDs off.
-    LimeLight.setCameraMode(LimeLight.CameraMode.eDriver);
-    LimeLight.setLedMode(LimeLight.LightMode.eOff);
-
-    cam = CameraServer.getInstance().startAutomaticCapture();
-    cam.setResolution(720, 480); // might need to be lowered
+  public void disabledInit() {   
   }
 
   @Override
   public void disabledPeriodic() {
+    LimeLight.setLedMode(LimeLight.LightMode.eOff);
   }
 
   /**
