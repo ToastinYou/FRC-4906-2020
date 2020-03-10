@@ -10,6 +10,8 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.POVButton;
 
 public final class OI {
 	public static XboxController XboxControl = new XboxController(0);
@@ -48,6 +50,10 @@ public final class OI {
 
 	public static boolean getDpadDown() {
 		return XboxControl.getPOV() == 180;
+	}
+
+	public static POVButton getDpadDownObject() {
+		return new POVButton(XboxControl, 180);
 	}
 
 	public static boolean getDpadLeft() {

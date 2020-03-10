@@ -17,6 +17,7 @@ package frc.robot;
  */
 public final class Constants {
 	public static boolean LimeLightControlling = false;
+	public static boolean IntakePiston = false;
     
 	// Controller Area Network (CAN)
 	public static int kCDriveRRear = 0;	// Drive Right Rear

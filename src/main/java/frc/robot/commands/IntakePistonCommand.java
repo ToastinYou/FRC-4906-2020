@@ -1,38 +1,38 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
-import frc.robot.OI;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import frc.robot.subsystems.IntakeSubsystem;
 
 // power cell pickup
 
-public class IntakeCommand extends CommandBase {  
-    public IntakeCommand(IntakeSubsystem subsystem) {
+public class IntakePistonCommand extends CommandBase {
+    private boolean intakePiston;
+  
+    public IntakePistonCommand(IntakeSubsystem subsystem) {
       // Use addRequirements() here to declare subsystem dependencies.
       addRequirements(subsystem);
+
+      // default pickup to upward
+      IntakeSubsystem.sol.set(DoubleSolenoid.Value.kForward);
     }
   
     // Called when the command is initially scheduled.
     @Override
-    public void initialize() {
-      // default pickup to upward
-      //IntakeSubsystem.sol.set(DoubleSolenoid.Value.kForward);
+    public void initialize() {      
+      intakePiston = !intakePiston;
+
+      if (!intakePiston) {
+        IntakeSubsystem.sol.set(DoubleSolenoid.Value.kForward);
+      }
+      else {
+        IntakeSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
+      }
     }
   
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-      if (OI.getYButton()) {
-        IntakeSubsystem.intakeMotor.set(Constants.kSpeedIntakeFwd);
-      }
-      else if (OI.getXButton()) {
-        IntakeSubsystem.intakeMotor.set(Constants.kSpeedIntakeRev);
-      }
-      else {
-        IntakeSubsystem.intakeMotor.set(0);
-      }
     }
   
     // Called once the command ends or is interrupted.

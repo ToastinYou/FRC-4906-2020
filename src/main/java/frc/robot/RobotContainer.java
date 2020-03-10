@@ -41,6 +41,7 @@ public class RobotContainer {
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   private final HangCommand m_hangCommand = new HangCommand(m_hangSubsystem);
   private final IntakeCommand m_intakeCommand = new IntakeCommand(m_intakeSubsystem);
+  private final IntakeCommand m_intakePistonCommand = new IntakeCommand(m_intakeSubsystem);
   private final ShiftCommand m_shiftCommand = new ShiftCommand(m_shiftSubsystem);
   private final ShooterCommand m_shooterCommand = new ShooterCommand(m_shooterSubsystem);
 
@@ -84,6 +85,7 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    OI.getDpadDownObject().whenReleased(m_intakePistonCommand);
   }
 
 
