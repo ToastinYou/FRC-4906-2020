@@ -53,8 +53,8 @@ public final class Constants {
 	public static int kDHangBottom = 1; // Hang Bottom Limit Switch
 
 	// Motor Speeds
-	public static double kSpeedShooterFwd = -0.8; // Shooter Forward
-	public static double kSpeedShooterRev = 0.4; // Shoter Reverse
+	public static double kSpeedShooterFwd = 0.8; // Shooter Forward
+	public static double kSpeedShooterRev = -0.4; // Shoter Reverse
 	public static double kSpeedIntakeFwd = -0.4; // Intake Forward
 	public static double kSpeedIntakeRev = 0.4; // Intake Reverse
 	public static double kSpeedHangFwd = 0.8; // Hang Forward
