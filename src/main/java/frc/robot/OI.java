@@ -130,6 +130,14 @@ public final class OI {
 		return JoystickControl.getZ();
 	}
 
+	public static boolean getJoystickLimeLightLED() {
+		return JoystickControl.getRawButton(1);
+	}
+
+	public static boolean getJoystickLimeLightCAM() {
+		return JoystickControl.getRawButton(2);
+	}
+
 	public static boolean getJoystickLowGear() {
 		return JoystickControl.getRawButton(3);
 	}

@@ -17,6 +17,7 @@ import edu.wpi.cscore.VideoMode.PixelFormat;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.HangAirBrakeCommand;
@@ -35,6 +36,8 @@ public class Robot extends TimedRobot {
   private RobotContainer m_robotContainer;
 
   private UsbCamera cam;
+
+  private boolean LimeLightLED, LimeLightCAM;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -70,11 +73,36 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
+    
+    // this doesn't work
+    if (OI.getJoystickLimeLightLED()) {
+      LimeLightLED = !LimeLightLED;
 
-    if (OI.getJoystickAutomation()) {
+      if (!LimeLightLED) {
+        LimeLight.setLedMode(LimeLight.LightMode.eOff);
+      }
+      else {
+        LimeLight.setLedMode(LimeLight.LightMode.eOn);
+      }
+    }
+
+    // this doesn't work
+    if (OI.getJoystickLimeLightCAM()) {
+      LimeLightCAM = !LimeLightCAM;
+
+      if (!LimeLightCAM) {
+        LimeLight.setCameraMode(LimeLight.CameraMode.eDriver);
+      }
+      else {
+        LimeLight.setCameraMode(LimeLight.CameraMode.eVision);
+      }
+    }
+
+    if (OI.getJoystickAutomation() && !Constants.LimeLightControlling) {
       // turn on LED to detect reflective tape
       LimeLight.setLedMode(LimeLight.LightMode.eOn);
       Constants.LimeLightControlling = true;
+      SmartDashboard.putBoolean("Foo", Constants.LimeLightControlling);
       
       double Kp = -0.1;
 
@@ -91,7 +119,7 @@ public class Robot extends TimedRobot {
       
       // turn LED back off so we don't get penalized.
       // might flash on/off since this will be looped.. will have to test.
-      LimeLight.setLedMode(LimeLight.LightMode.eOff);
+      //LimeLight.setLedMode(LimeLight.LightMode.eOff);
     }
     else {
       Constants.LimeLightControlling = false;
