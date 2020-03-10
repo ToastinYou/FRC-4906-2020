@@ -57,8 +57,8 @@ public final class Constants {
 	public static double kSpeedShooterRev = 0.4; // Shoter Reverse
 	public static double kSpeedIntakeFwd = -0.4; // Intake Forward
 	public static double kSpeedIntakeRev = 0.4; // Intake Reverse
-	public static double kSpeedHangFwd = 0.4; // Hang Forward
-	public static double kSpeedHangRev = -0.4; // Hang Reverse
+	public static double kSpeedHangFwd = 0.8; // Hang Forward
+	public static double kSpeedHangRev = -0.8; // Hang Reverse
 	public static double kSpeedDriveDecrement = 2; // Speed to divide drive by.
 	public static double kSpeedConveyorFwd = 0.6; // Conveyor Forward
 	public static double kSpeedConveyorRev = -0.4; // Conveyor Reverse
