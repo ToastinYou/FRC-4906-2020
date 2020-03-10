@@ -1,25 +1,23 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.OI;
 import frc.robot.subsystems.ShiftSubsystem;
 
 public class ShiftCommand extends CommandBase {
-    private String gear;
+    private String gear = "Low";
   
     public ShiftCommand(ShiftSubsystem subsystem) {
       // Use addRequirements() here to declare subsystem dependencies.
       addRequirements(subsystem);
-
-      //SmartDashboard.putString("Gearbox", gear); // "gear" may not update quick enough..
     }
   
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
       ShiftSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
-      gear = "Low";
     }
   
     // Called every time the scheduler runs while the command is scheduled.
@@ -36,6 +34,8 @@ public class ShiftCommand extends CommandBase {
         ShiftSubsystem.sol.set(DoubleSolenoid.Value.kForward);
         gear = "High";
       }
+      
+      SmartDashboard.putString("Gear", gear); // "gear" may not update quick enough..
     }
   
     // Called once the command ends or is interrupted.

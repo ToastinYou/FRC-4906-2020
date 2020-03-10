@@ -7,9 +7,16 @@
 
 package frc.robot;
 
+import org.opencv.core.Mat;
+
+import edu.wpi.cscore.CvSink;
+import edu.wpi.cscore.CvSource;
+import edu.wpi.cscore.HttpCamera;
 import edu.wpi.cscore.UsbCamera;
+import edu.wpi.cscore.VideoMode.PixelFormat;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.HangAirBrakeCommand;
@@ -46,7 +53,7 @@ public class Robot extends TimedRobot {
     LimeLight.setLedMode(LimeLight.LightMode.eOff);
 
     cam = CameraServer.getInstance().startAutomaticCapture();
-    cam.setResolution(720, 480); // might need to be lowered
+    cam.setResolution(320, 420);
   }
 
   /**

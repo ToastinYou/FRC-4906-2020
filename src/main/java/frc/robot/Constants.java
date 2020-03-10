@@ -54,15 +54,15 @@ public final class Constants {
 	public static int kDHangBottom = 1; // Hang Bottom Limit Switch
 
 	// Motor Speeds
-	public static double kSpeedShooterFwd = -0.4; // Shooter Forward
+	public static double kSpeedShooterFwd = -0.8; // Shooter Forward
 	public static double kSpeedShooterRev = 0.4; // Shoter Reverse
-	public static double kSpeedIntakeFwd = -0.4; // Intake Forward
-	public static double kSpeedIntakeRev = 0.4; // Intake Reverse
+	public static double kSpeedIntakeFwd = -0.6; // Intake Forward
+	public static double kSpeedIntakeRev = 0.6; // Intake Reverse
 	public static double kSpeedHangFwd = 0.8; // Hang Forward
 	public static double kSpeedHangRev = -0.8; // Hang Reverse
-	public static double kSpeedDriveDecrement = 2; // Speed to divide drive by.
-	public static double kSpeedConveyorFwd = 0.6; // Conveyor Forward
-	public static double kSpeedConveyorRev = -0.4; // Conveyor Reverse
+	public static double kSpeedDriveDecrement = 1.4; // Speed to divide drive by.
+	public static double kSpeedConveyorFwd = 0.8; // Conveyor Forward
+	public static double kSpeedConveyorRev = -0.8; // Conveyor Reverse
 	public static double kSpeedColor = 0.2; // Color Spinner
 
 	// Time of Flight

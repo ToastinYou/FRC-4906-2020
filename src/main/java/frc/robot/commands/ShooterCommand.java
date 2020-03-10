@@ -27,7 +27,7 @@ public class ShooterCommand extends CommandBase {
         ShooterSubsystem.rightMotor.set(Constants.kSpeedShooterRev);
       }
       else {
-        ShooterSubsystem.rightMotor.set(0); // is this needed?
+        ShooterSubsystem.rightMotor.set(0);
       }
     }
   

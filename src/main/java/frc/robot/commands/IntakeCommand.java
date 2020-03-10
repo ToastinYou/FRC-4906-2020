@@ -30,9 +30,9 @@ public class IntakeCommand extends CommandBase {
       else if (OI.getXButton()) {
         IntakeSubsystem.intakeMotor.set(Constants.kSpeedIntakeRev);
       }
-      /*else {
+      else {
         IntakeSubsystem.intakeMotor.set(0);
-      }*/
+      }
     }
   
     // Called once the command ends or is interrupted.
