@@ -19,11 +19,11 @@ public class HangCommand extends CommandBase {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-      if (OI.getStickLeftAxisUp()) {
+      if (OI.getStickLeftAxisUp() && !HangSubsystem.topLimit.get()) {
         HangSubsystem.hangMotorLeft.set(Constants.kSpeedHangRev);
         HangSubsystem.hangMotorRight.set(Constants.kSpeedHangFwd);
       }
-      else if (OI.getStickLeftAxisDown()) {
+      else if (OI.getStickLeftAxisDown() && !HangSubsystem.bottomLimit.get()) {
         HangSubsystem.hangMotorLeft.set(Constants.kSpeedHangFwd);
         HangSubsystem.hangMotorRight.set(Constants.kSpeedHangRev);
       }
@@ -31,18 +31,6 @@ public class HangCommand extends CommandBase {
         HangSubsystem.hangMotorLeft.set(0);
         HangSubsystem.hangMotorRight.set(0);
       }
-
-      // DPAD UP
-      //if (/*Constants.XboxControl.getPOV(0) != -1 && */Constants.XboxLY() > 0) {// && !HangSubsystem.topLimit.get()) {
-      //  HangSubsystem.hangMotorLeft.set(Constants.kSpeedHangFwd);
-      //}
-      // DPAD DOWN
-      //else if (/*Constants.XboxControl.getPOV(180) != -1 && */Constants.XboxLY() < 0) {// && !HangSubsystem.bottomLimit.get()) {
-      //  HangSubsystem.hangMotorLeft.set(Constants.kSpeedHangRev);
-      //}
-      //else {
-      //  HangSubsystem.hangMotorLeft.set(0);
-      //}
     }
   
     // Called once the command ends or is interrupted.
