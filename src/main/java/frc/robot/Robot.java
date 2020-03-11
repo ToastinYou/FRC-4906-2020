@@ -98,7 +98,7 @@ public class Robot extends TimedRobot {
       }
     }*/
 
-    if (OI.getJoystickAutomation() && !Constants.LimeLightControlling) {
+    /*if (OI.getJoystickAutomation() && !Constants.LimeLightControlling) {
       // turn on LED to detect reflective tape
       LimeLight.setLedMode(LimeLight.LightMode.eOn);
       Constants.LimeLightControlling = true;
@@ -125,7 +125,7 @@ public class Robot extends TimedRobot {
       Constants.LimeLightControlling = false;
       DriveSubsystem.left = 0;
       DriveSubsystem.right = 0;
-    }
+    }*/
 
     /*if (OI.getStartButton()) {
       HangAirBrakeCommand.ToggleAirBrake();

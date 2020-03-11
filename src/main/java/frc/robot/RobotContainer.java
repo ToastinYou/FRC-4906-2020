@@ -44,6 +44,7 @@ public class RobotContainer {
   private final HangCommand m_hangCommand = new HangCommand(m_hangSubsystem);
   private final IntakeCommand m_intakeCommand = new IntakeCommand(m_intakeSubsystem);
   private final IntakePistonCommand m_intakePistonCommand = new IntakePistonCommand(m_intakeSubsystem);
+  private final LimeLightAutoCommand m_limeLightAutoCommand = new LimeLightAutoCommand();
   private final LimeLightCamCommand m_limeLightCamCommand = new LimeLightCamCommand();
   private final LimeLightLEDCommand m_limeLightLEDCommand = new LimeLightLEDCommand();
   private final ShiftCommand m_shiftCommand = new ShiftCommand(m_shiftSubsystem);
@@ -89,9 +90,10 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    OI.getBButtonObject().whenReleased(new IntakePistonCommand(m_intakeSubsystem));
     OI.getStartButtonObject().whenReleased(new HangAirBrakeCommand(m_hangSubsystem));
+    OI.getBButtonObject().whenReleased(new IntakePistonCommand(m_intakeSubsystem));
 
+    OI.getJoystickAutomationObject().whenHeld(new LimeLightAutoCommand());
     OI.getJoystickLimeLightLEDObject().whenReleased(new LimeLightLEDCommand());
     OI.getJoystickLimeLightCAMObject().whenReleased(new LimeLightCamCommand());
   }
