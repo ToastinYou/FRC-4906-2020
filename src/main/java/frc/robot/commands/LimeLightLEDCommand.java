@@ -4,36 +4,38 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.LimeLight;
 import frc.robot.LimeLight.LightMode;
 
-public class LimeLightLEDCommand extends CommandBase {  
-    public LimeLightLEDCommand() {
-    }
+public class LimeLightLEDCommand extends CommandBase {
+  private boolean done;
   
-    // Called when the command is initially scheduled.
-    @Override
-    public void initialize() {
+  public LimeLightLEDCommand() {
+  }
+
+  // Called when the command is initially scheduled.
+  @Override
+  public void initialize() {
+  }
+
+  // Called every time the scheduler runs while the command is scheduled.
+  @Override
+  public void execute() {
+    if (LimeLight.LightState == LightMode.eOff) {
+      LimeLight.setLedMode(LightMode.eOn);
     }
-  
-    // Called every time the scheduler runs while the command is scheduled.
-    @Override
-    public void execute() {
-      if (LimeLight.LightState == LightMode.eOff) {
-        LimeLight.setLedMode(LightMode.eOn);
-      }
-      else {
-        LimeLight.setLedMode(LightMode.eOff);
-      }
-      
-      end(false);
+    else {
+      LimeLight.setLedMode(LightMode.eOff);
     }
-  
-    // Called once the command ends or is interrupted.
-    @Override
-    public void end(boolean interrupted) {
-    }
-  
-    // Returns true when the command should end.
-    @Override
-    public boolean isFinished() {
-      return false;
-    }
+    
+    done = true;
+  }
+
+  // Called once the command ends or is interrupted.
+  @Override
+  public void end(boolean interrupted) {
+  }
+
+  // Returns true when the command should end.
+  @Override
+  public boolean isFinished() {
+    return done;
+  }
 }

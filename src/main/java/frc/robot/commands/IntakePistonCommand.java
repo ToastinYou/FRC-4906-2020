@@ -12,6 +12,8 @@ public class IntakePistonCommand extends CommandBase {
       Up,
     }
     public static Piston State;
+
+    private boolean done;
   
     public IntakePistonCommand(IntakeSubsystem subsystem) {
       // Use addRequirements() here to declare subsystem dependencies.
@@ -35,7 +37,7 @@ public class IntakePistonCommand extends CommandBase {
         State = Piston.Up;
       }
       
-      end(false);
+      done = true;
     }
   
     // Called once the command ends or is interrupted.
@@ -46,6 +48,6 @@ public class IntakePistonCommand extends CommandBase {
     // Returns true when the command should end.
     @Override
     public boolean isFinished() {
-      return false;
+      return done;
     }
 }

@@ -12,6 +12,8 @@ public class HangAirBrakeCommand extends CommandBase {
   public static Puncher State;
   //private static boolean airBrake;
 
+  private boolean done;
+
   public HangAirBrakeCommand(HangSubsystem subsystem) {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
@@ -44,8 +46,8 @@ public class HangAirBrakeCommand extends CommandBase {
       HangSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
       State = Puncher.In;
     }
-    
-    end(false);
+
+    done = true;
   }
 
   // Called once the command ends or is interrupted.
@@ -56,6 +58,6 @@ public class HangAirBrakeCommand extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return done;
   }
 }
