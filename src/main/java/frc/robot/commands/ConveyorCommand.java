@@ -3,12 +3,9 @@ package frc.robot.commands;
 import frc.robot.Constants;
 import frc.robot.OI;
 import frc.robot.subsystems.ConveyorSubsystem;
-import frc.robot.subsystems.IntakeSubsystem;
-import frc.robot.subsystems.ConveyorSubsystem.Stage;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 // TODO: utilize time of flight sensors -- CREATE ALGORITHM FOR HOLDING 5 BALLS!!
-
 public class ConveyorCommand extends CommandBase {
   public ConveyorCommand(ConveyorSubsystem subsystem) {
     // Use addRequirements() here to declare subsystem dependencies.

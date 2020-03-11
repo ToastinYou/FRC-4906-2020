@@ -7,45 +7,44 @@ import frc.robot.OI;
 import frc.robot.subsystems.ShiftSubsystem;
 
 public class ShiftCommand extends CommandBase {
-    private String gear = "Low";
-  
-    public ShiftCommand(ShiftSubsystem subsystem) {
-      // Use addRequirements() here to declare subsystem dependencies.
-      addRequirements(subsystem);
-    }
-  
-    // Called when the command is initially scheduled.
-    @Override
-    public void initialize() {
-      ShiftSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
-    }
-  
-    // Called every time the scheduler runs while the command is scheduled.
-    @Override
-    public void execute() {
-      if (OI.getJoystickLowGear()) {
-        // low gear
-        ShiftSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
-        gear = "Low";
-      }
+  private String gear = "Low";
 
-      if (OI.getJoystickHighGear()) {
-        // high gear
-        ShiftSubsystem.sol.set(DoubleSolenoid.Value.kForward);
-        gear = "High";
-      }
-      
-      SmartDashboard.putString("Gear", gear); // "gear" may not update quick enough..
+  public ShiftCommand(ShiftSubsystem subsystem) {
+    // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(subsystem);
+  }
+
+  // Called when the command is initially scheduled.
+  @Override
+  public void initialize() {
+    ShiftSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
+  }
+
+  // Called every time the scheduler runs while the command is scheduled.
+  @Override
+  public void execute() {
+    if (OI.getJoystickLowGear() && gear != "Low") {
+      // low gear
+      ShiftSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
+      gear = "Low";
     }
-  
-    // Called once the command ends or is interrupted.
-    @Override
-    public void end(boolean interrupted) {
+    else if (OI.getJoystickHighGear() && gear != "High") {
+      // high gear
+      ShiftSubsystem.sol.set(DoubleSolenoid.Value.kForward);
+      gear = "High";
     }
-  
-    // Returns true when the command should end.
-    @Override
-    public boolean isFinished() {
-      return false;
-    }
+    
+    SmartDashboard.putString("Gear", gear);
+  }
+
+  // Called once the command ends or is interrupted.
+  @Override
+  public void end(boolean interrupted) {
+  }
+
+  // Returns true when the command should end.
+  @Override
+  public boolean isFinished() {
+    return false;
+  }
 }

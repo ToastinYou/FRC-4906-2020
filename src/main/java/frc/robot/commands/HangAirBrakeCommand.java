@@ -10,7 +10,6 @@ public class HangAirBrakeCommand extends CommandBase {
     In,
   }
   public static Puncher State;
-  //private static boolean airBrake;
 
   private boolean done;
 
@@ -23,17 +22,6 @@ public class HangAirBrakeCommand extends CommandBase {
   @Override
   public void initialize() {
   }
-
-  /*public static void ToggleAirBrake() {  
-    airBrake = !airBrake;
-
-    if (!airBrake) {
-      HangSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
-    }
-    else {
-      HangSubsystem.sol.set(DoubleSolenoid.Value.kForward);
-    }
-  }*/
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
