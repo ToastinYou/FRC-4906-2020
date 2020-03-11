@@ -1,12 +1,11 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
-import frc.robot.OI;
-import frc.robot.subsystems.ShooterSubsystem;
+import frc.robot.subsystems.IntakeSubsystem;
 
-public class ShooterCommand extends CommandBase {
-  public ShooterCommand(ShooterSubsystem subsystem) {
+public class IntakeDownCommand extends CommandBase {
+  private boolean done;
+  public IntakeDownCommand(IntakeSubsystem subsystem) {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -19,15 +18,7 @@ public class ShooterCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (OI.getBumperRight()) {
-      ShooterSubsystem.rightMotor.set(Constants.kSpeedShooterFwd);
-    }
-    else if (OI.getBumperLeft()) {
-      ShooterSubsystem.rightMotor.set(Constants.kSpeedShooterRev);
-    }
-    else {
-      ShooterSubsystem.rightMotor.set(0);
-    }
+    IntakeSubsystem.setIntakeDown();
   }
 
   // Called once the command ends or is interrupted.
@@ -38,6 +29,6 @@ public class ShooterCommand extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return done;
   }
 }

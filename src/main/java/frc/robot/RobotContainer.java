@@ -40,10 +40,12 @@ public class RobotContainer {
   private final ConveyorCommand m_conveyorCommand = new ConveyorCommand(m_conveyorSubsystem);
   private final DriveCommand m_driveCommand = new DriveCommand(m_driveSubsystem);
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
-  private final HangAirBrakeCommand m_hangAirBrakeCommand = new HangAirBrakeCommand(m_hangSubsystem);
+  private final HangPunchOutCommand m_hangPunchOutCommand = new HangPunchOutCommand(m_hangSubsystem);
+  private final HangPunchInCommand m_hangPunchInCommand = new HangPunchInCommand(m_hangSubsystem);
   private final HangCommand m_hangCommand = new HangCommand(m_hangSubsystem);
   private final IntakeCommand m_intakeCommand = new IntakeCommand(m_intakeSubsystem);
-  private final IntakePistonCommand m_intakePistonCommand = new IntakePistonCommand(m_intakeSubsystem);
+  private final IntakeDownCommand m_intakeDownCommand = new IntakeDownCommand(m_intakeSubsystem);
+  private final IntakeUpCommand m_intakeUpCommand = new IntakeUpCommand(m_intakeSubsystem);
   private final LimeLightAutoCommand m_limeLightAutoCommand = new LimeLightAutoCommand();
   private final LimeLightCamCommand m_limeLightCamCommand = new LimeLightCamCommand();
   private final LimeLightLEDCommand m_limeLightLEDCommand = new LimeLightLEDCommand();
@@ -90,8 +92,10 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    OI.getStartButtonObject().whenReleased(new HangAirBrakeCommand(m_hangSubsystem));
-    OI.getBButtonObject().whenReleased(new IntakePistonCommand(m_intakeSubsystem));
+    OI.getStartButtonObject().whenReleased(new HangPunchOutCommand(m_hangSubsystem));
+    OI.getBackButtonObject().whenReleased(new HangPunchInCommand(m_hangSubsystem));
+    OI.getBButtonObject().whenReleased(new IntakeDownCommand(m_intakeSubsystem));
+    OI.getAButtonObject().whenReleased(new IntakeUpCommand(m_intakeSubsystem));
 
     OI.getJoystickAutomationObject().whenHeld(new LimeLightAutoCommand());
     OI.getJoystickLimeLightLEDObject().whenReleased(new LimeLightLEDCommand());

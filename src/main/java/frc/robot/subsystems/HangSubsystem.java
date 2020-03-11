@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import frc.robot.commands.HangAirBrakeCommand;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -26,8 +25,6 @@ public class HangSubsystem extends SubsystemBase {
 
     sol = new DoubleSolenoid(Constants.kPHangFwd, Constants.kPHangRev);
 
-    HangAirBrakeCommand.State = HangAirBrakeCommand.Puncher.In;
-
     topLimit = new DigitalInput(Constants.kDHangTop);
     bottomLimit = new DigitalInput(Constants.kDHangBottom);
   }
@@ -35,5 +32,29 @@ public class HangSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+  }
+
+  public static boolean isPunchOut() {
+    return sol.get() == DoubleSolenoid.Value.kReverse;
+  }
+
+  public static boolean isPunchIn() {
+    return sol.get() == DoubleSolenoid.Value.kForward;
+  }
+
+  public static void setPunchOut() {
+    if (isPunchIn()) {
+      for (int i = 0; i < 50; i++) {
+        sol.set(DoubleSolenoid.Value.kForward);
+      }
+    }
+  }
+
+  public static void setPunchIn() {
+    if (isPunchOut()) {
+      for (int i = 0; i < 50; i++) {
+        sol.set(DoubleSolenoid.Value.kReverse);
+      }
+    }
   }
 }

@@ -21,6 +21,10 @@ public final class OI {
 		return XboxControl.getAButton();
 	}
 
+	public static Button getAButtonObject() {
+		return new JoystickButton(XboxControl, 1);
+	}
+
 	public static boolean getXButton() {
 		return XboxControl.getXButton();
 	}
@@ -75,6 +79,10 @@ public final class OI {
 
 	public static boolean getBackButton() {
 		return XboxControl.getBackButton();
+	}
+
+	public static Button getBackButtonObject() {
+		return new JoystickButton(XboxControl, 7);
 	}
 
 	public static boolean getBumperLeft() {

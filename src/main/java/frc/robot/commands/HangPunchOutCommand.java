@@ -1,19 +1,12 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.HangSubsystem;
 
-public class HangAirBrakeCommand extends CommandBase {
-  public static enum Puncher {
-    Out,
-    In,
-  }
-  public static Puncher State;
-
+public class HangPunchOutCommand extends CommandBase {
   private boolean done;
 
-  public HangAirBrakeCommand(HangSubsystem subsystem) {
+  public HangPunchOutCommand(HangSubsystem subsystem) {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -26,15 +19,7 @@ public class HangAirBrakeCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (State == Puncher.In) {
-      HangSubsystem.sol.set(DoubleSolenoid.Value.kForward);
-      State = Puncher.Out;
-    }
-    else {
-      HangSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
-      State = Puncher.In;
-    }
-
+    HangSubsystem.setPunchOut();
     done = true;
   }
 
