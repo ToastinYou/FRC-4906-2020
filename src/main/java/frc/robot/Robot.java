@@ -127,9 +127,9 @@ public class Robot extends TimedRobot {
       DriveSubsystem.right = 0;
     }
 
-    if (OI.getStartButton()) {
+    /*if (OI.getStartButton()) {
       HangAirBrakeCommand.ToggleAirBrake();
-    }
+    }*/
 
     /*if (OI.getBButton()) {
       IntakePistonCommand.ToggleIntakePiston();

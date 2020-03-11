@@ -5,41 +5,57 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.HangSubsystem;
 
 public class HangAirBrakeCommand extends CommandBase {
-    private static boolean airBrake;
-    public HangAirBrakeCommand(HangSubsystem subsystem) {
-      // Use addRequirements() here to declare subsystem dependencies.
-      addRequirements(subsystem);
-    }
-  
-    // Called when the command is initially scheduled.
-    @Override
-    public void initialize() {
-    }
+  public static enum Puncher {
+    Out,
+    In,
+  }
+  public static Puncher State;
+  //private static boolean airBrake;
 
-    public static void ToggleAirBrake() {  
-      airBrake = !airBrake;
+  public HangAirBrakeCommand(HangSubsystem subsystem) {
+    // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(subsystem);
+  }
 
-      if (!airBrake) {
-        HangSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
-      }
-      else {
-        HangSubsystem.sol.set(DoubleSolenoid.Value.kForward);
-      }
+  // Called when the command is initially scheduled.
+  @Override
+  public void initialize() {
+  }
+
+  /*public static void ToggleAirBrake() {  
+    airBrake = !airBrake;
+
+    if (!airBrake) {
+      HangSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
     }
-  
-    // Called every time the scheduler runs while the command is scheduled.
-    @Override
-    public void execute() {
+    else {
+      HangSubsystem.sol.set(DoubleSolenoid.Value.kForward);
     }
-  
-    // Called once the command ends or is interrupted.
-    @Override
-    public void end(boolean interrupted) {
+  }*/
+
+  // Called every time the scheduler runs while the command is scheduled.
+  @Override
+  public void execute() {
+    if (State == Puncher.In) {
+      HangSubsystem.sol.set(DoubleSolenoid.Value.kForward);
+      State = Puncher.Out;
     }
-  
-    // Returns true when the command should end.
-    @Override
-    public boolean isFinished() {
-      return false;
+    else {
+      HangSubsystem.sol.set(DoubleSolenoid.Value.kReverse);
+      State = Puncher.In;
     }
+    
+    end(false);
+  }
+
+  // Called once the command ends or is interrupted.
+  @Override
+  public void end(boolean interrupted) {
+  }
+
+  // Returns true when the command should end.
+  @Override
+  public boolean isFinished() {
+    return false;
+  }
 }

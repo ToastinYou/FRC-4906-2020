@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+import frc.robot.commands.HangAirBrakeCommand;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -24,6 +25,8 @@ public class HangSubsystem extends SubsystemBase {
     hangMotorRight.setInverted(false);
 
     sol = new DoubleSolenoid(Constants.kPHangFwd, Constants.kPHangRev);
+
+    HangAirBrakeCommand.State = HangAirBrakeCommand.Puncher.In;
 
     topLimit = new DigitalInput(Constants.kDHangTop);
     bottomLimit = new DigitalInput(Constants.kDHangBottom);

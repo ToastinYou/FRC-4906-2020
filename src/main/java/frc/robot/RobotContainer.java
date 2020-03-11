@@ -88,6 +88,7 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     OI.getBButtonObject().whenReleased(new IntakePistonCommand(m_intakeSubsystem));
+    OI.getStartButtonObject().whenReleased(new HangAirBrakeCommand(m_hangSubsystem));
   }
 
 
