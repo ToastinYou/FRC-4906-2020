@@ -20,6 +20,8 @@ public class LimeLight {
 		eOn, eOff, eBlink
 	}
 
+	public static LightMode LightState;
+
 	/**
 	 * Camera modes for Limelight.
 	 * 
@@ -28,6 +30,8 @@ public class LimeLight {
 	public static enum CameraMode {
 		eVision, eDriver
 	}
+
+	public static CameraMode CameraState;
 
 	/**
 	 * Gets whether a target is detected by the Limelight.
@@ -91,6 +95,7 @@ public class LimeLight {
 	 */
 	public static void setLedMode(LightMode mode) {
 		getValue("ledMode").setNumber(mode.ordinal());
+		LightState = mode;
 	}
 
 	/**
@@ -101,6 +106,7 @@ public class LimeLight {
 	 */
 	public static void setCameraMode(CameraMode mode) {
 		getValue("camMode").setNumber(mode.ordinal());
+		CameraState = mode;
 	}
 
 	/**

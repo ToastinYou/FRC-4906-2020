@@ -75,7 +75,7 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().run();
     
     // this doesn't work
-    if (OI.getJoystickLimeLightLED()) {
+    /*if (OI.getJoystickLimeLightLED()) {
       LimeLightLED = !LimeLightLED;
 
       if (!LimeLightLED) {
@@ -84,10 +84,10 @@ public class Robot extends TimedRobot {
       else {
         LimeLight.setLedMode(LimeLight.LightMode.eOn);
       }
-    }
+    }*/
 
     // this doesn't work
-    if (OI.getJoystickLimeLightCAM()) {
+    /*if (OI.getJoystickLimeLightCAM()) {
       LimeLightCAM = !LimeLightCAM;
 
       if (!LimeLightCAM) {
@@ -96,7 +96,7 @@ public class Robot extends TimedRobot {
       else {
         LimeLight.setCameraMode(LimeLight.CameraMode.eVision);
       }
-    }
+    }*/
 
     if (OI.getJoystickAutomation() && !Constants.LimeLightControlling) {
       // turn on LED to detect reflective tape

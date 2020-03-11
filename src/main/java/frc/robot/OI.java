@@ -142,6 +142,14 @@ public final class OI {
 		return JoystickControl.getRawButton(2);
 	}
 
+	public static Button getJoystickLimeLightLEDObject() {
+		return new JoystickButton(JoystickControl, 1);
+	}
+
+	public static Button getJoystickLimeLightCAMObject() {
+		return new JoystickButton(JoystickControl, 2);
+	}
+
 	public static boolean getJoystickLowGear() {
 		return JoystickControl.getRawButton(3);
 	}
@@ -152,5 +160,9 @@ public final class OI {
 
 	public static boolean getJoystickAutomation() {
 		return JoystickControl.getRawButton(11);
+	}
+
+	public static Button getJoystickAutomationObject() {
+		return new JoystickButton(JoystickControl, 11);
 	}
 }

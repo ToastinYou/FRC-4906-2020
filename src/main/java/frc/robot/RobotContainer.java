@@ -40,10 +40,12 @@ public class RobotContainer {
   private final ConveyorCommand m_conveyorCommand = new ConveyorCommand(m_conveyorSubsystem);
   private final DriveCommand m_driveCommand = new DriveCommand(m_driveSubsystem);
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
-  private final HangCommand m_hangAirBrakeCommand = new HangCommand(m_hangSubsystem);
+  private final HangAirBrakeCommand m_hangAirBrakeCommand = new HangAirBrakeCommand(m_hangSubsystem);
   private final HangCommand m_hangCommand = new HangCommand(m_hangSubsystem);
   private final IntakeCommand m_intakeCommand = new IntakeCommand(m_intakeSubsystem);
-  private final IntakeCommand m_intakePistonCommand = new IntakeCommand(m_intakeSubsystem);
+  private final IntakePistonCommand m_intakePistonCommand = new IntakePistonCommand(m_intakeSubsystem);
+  private final LimeLightCamCommand m_limeLightCamCommand = new LimeLightCamCommand();
+  private final LimeLightLEDCommand m_limeLightLEDCommand = new LimeLightLEDCommand();
   private final ShiftCommand m_shiftCommand = new ShiftCommand(m_shiftSubsystem);
   private final ShooterCommand m_shooterCommand = new ShooterCommand(m_shooterSubsystem);
 
@@ -89,6 +91,9 @@ public class RobotContainer {
   private void configureButtonBindings() {
     OI.getBButtonObject().whenReleased(new IntakePistonCommand(m_intakeSubsystem));
     OI.getStartButtonObject().whenReleased(new HangAirBrakeCommand(m_hangSubsystem));
+
+    OI.getJoystickLimeLightLEDObject().whenReleased(new LimeLightLEDCommand());
+    OI.getJoystickLimeLightCAMObject().whenReleased(new LimeLightCamCommand());
   }
 
 
