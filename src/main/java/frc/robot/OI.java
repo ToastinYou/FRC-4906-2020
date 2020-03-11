@@ -33,6 +33,10 @@ public final class OI {
 		return XboxControl.getBButtonReleased();
 	}
 
+	public static Button getBButtonObject() {
+		return new JoystickButton(XboxControl, 2);
+	}
+
 	public static boolean getStickRightAxisUp() {
 		return XboxControl.getY(Hand.kRight) > 0.5;
 	}

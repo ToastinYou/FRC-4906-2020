@@ -131,9 +131,9 @@ public class Robot extends TimedRobot {
       HangAirBrakeCommand.ToggleAirBrake();
     }
 
-    if (OI.getBButton()) {
+    /*if (OI.getBButton()) {
       IntakePistonCommand.ToggleIntakePiston();
-    }
+    }*/
   }
 
   /**

@@ -3,6 +3,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+import frc.robot.commands.IntakePistonCommand;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -19,6 +20,8 @@ public class IntakeSubsystem extends SubsystemBase {
 
     intakeMotor.restoreFactoryDefaults();
     intakeMotor.setInverted(false);
+
+    IntakePistonCommand.State = IntakePistonCommand.Piston.Up;
   }
 
   @Override
