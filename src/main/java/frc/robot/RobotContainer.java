@@ -47,8 +47,6 @@ public class RobotContainer {
   private final IntakeDownCommand m_intakeDownCommand = new IntakeDownCommand(m_intakeSubsystem);
   private final IntakeUpCommand m_intakeUpCommand = new IntakeUpCommand(m_intakeSubsystem);
   private final LimeLightAutoCommand m_limeLightAutoCommand = new LimeLightAutoCommand();
-  private final LimeLightCamCommand m_limeLightCamCommand = new LimeLightCamCommand();
-  private final LimeLightLEDCommand m_limeLightLEDCommand = new LimeLightLEDCommand();
   private final ShiftCommand m_shiftCommand = new ShiftCommand(m_shiftSubsystem);
   private final ShooterCommand m_shooterCommand = new ShooterCommand(m_shooterSubsystem);
 
@@ -98,8 +96,6 @@ public class RobotContainer {
     OI.getAButtonObject().whenReleased(new IntakeUpCommand(m_intakeSubsystem));
 
     OI.getJoystickAutomationObject().whenHeld(new LimeLightAutoCommand());
-    OI.getJoystickLimeLightLEDObject().whenReleased(new LimeLightLEDCommand());
-    OI.getJoystickLimeLightCAMObject().whenReleased(new LimeLightCamCommand());
   }
 
 
