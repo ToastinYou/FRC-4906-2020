@@ -8,7 +8,7 @@ public class AirSubsystem extends SubsystemBase {
 
   public AirSubsystem() {
     air = new Compressor(0);
-    air.setClosedLoopControl(false); // is this needed?
+    air.setClosedLoopControl(true);
     air.start();
   }
 
