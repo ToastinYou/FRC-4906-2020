@@ -37,7 +37,7 @@ public class Robot extends TimedRobot {
 
   private UsbCamera cam;
 
-  private boolean LimeLightLED, LimeLightCAM;
+  //private boolean LimeLightLED, LimeLightCAM;
 
   /**
    * This function is run when the robot is first started up and should be used for any
