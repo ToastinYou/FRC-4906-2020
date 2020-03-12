@@ -95,6 +95,7 @@ public class RobotContainer {
     OI.getBButtonObject().whenReleased(new IntakeDownCommand(m_intakeSubsystem));
     OI.getAButtonObject().whenReleased(new IntakeUpCommand(m_intakeSubsystem));
 
+    // doesn't work.
     OI.getJoystickAutomationObject().whenHeld(new LimeLightAutoCommand());
   }
 

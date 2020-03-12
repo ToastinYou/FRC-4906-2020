@@ -20,7 +20,7 @@ public class HangPunchInCommand extends CommandBase {
   @Override
   public void execute() {
     HangSubsystem.setPunchIn();
-    done = true;
+    //done = true;
   }
 
   // Called once the command ends or is interrupted.

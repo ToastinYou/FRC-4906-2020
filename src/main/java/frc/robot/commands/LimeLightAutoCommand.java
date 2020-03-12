@@ -37,15 +37,20 @@ public class LimeLightAutoCommand extends CommandBase {
   public void execute() {
     SmartDashboard.putBoolean("LimeLight Controlling", Constants.LimeLightControlling);
       
-    double Kp = -0.1;
+    double Kp = -0.04;
 
     double headingError = LimeLight.getTx();
     double steeringAdjust = Kp * headingError;
 
-    DriveSubsystem.left = OI.getJoystickZ() + steeringAdjust;
-    DriveSubsystem.right = OI.getJoystickZ() - steeringAdjust;
+    //System.out.println("Steering Adjust: " + steeringAdjust);
 
-    DriveSubsystem.dDrive.arcadeDrive(OI.getJoystickY(), DriveSubsystem.left + DriveSubsystem.right);
+    DriveSubsystem.left = OI.getJoystickZ() + (steeringAdjust);
+    DriveSubsystem.right = OI.getJoystickZ() - (steeringAdjust);
+
+    if (steeringAdjust <= -0.6 || steeringAdjust >= 0.6) {
+      DriveSubsystem.dDrive.tankDrive(DriveSubsystem.left / 1.8, DriveSubsystem.right / 1.8);
+    }
+    //DriveSubsystem.dDrive.arcadeDrive(OI.getJoystickY(), DriveSubsystem.left * DriveSubsystem.right);
   }
 
   // Called once the command ends or is interrupted.

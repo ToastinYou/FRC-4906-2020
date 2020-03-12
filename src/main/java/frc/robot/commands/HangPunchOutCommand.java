@@ -20,7 +20,6 @@ public class HangPunchOutCommand extends CommandBase {
   @Override
   public void execute() {
     HangSubsystem.setPunchOut();
-    done = true;
   }
 
   // Called once the command ends or is interrupted.

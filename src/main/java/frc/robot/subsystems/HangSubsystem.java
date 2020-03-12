@@ -43,18 +43,10 @@ public class HangSubsystem extends SubsystemBase {
   }
 
   public static void setPunchOut() {
-    if (isPunchIn()) {
-      for (int i = 0; i < 50; i++) {
-        sol.set(DoubleSolenoid.Value.kForward);
-      }
-    }
+    sol.set(DoubleSolenoid.Value.kForward);
   }
 
   public static void setPunchIn() {
-    if (isPunchOut()) {
-      for (int i = 0; i < 50; i++) {
-        sol.set(DoubleSolenoid.Value.kReverse);
-      }
-    }
+    sol.set(DoubleSolenoid.Value.kReverse);
   }
 }

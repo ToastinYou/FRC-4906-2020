@@ -35,18 +35,10 @@ public class IntakeSubsystem extends SubsystemBase {
   }
 
   public static void setIntakeDown() {
-    if (isIntakeUp()) {
-      for (int i = 0; i < 50; i++) {
-        sol.set(DoubleSolenoid.Value.kReverse);
-      }
-    }
+    sol.set(DoubleSolenoid.Value.kReverse);
   }
 
   public static void setIntakeUp() {
-    if (isIntakeDown()) {
-      for (int i = 0; i < 50; i++) {
-        sol.set(DoubleSolenoid.Value.kForward);
-      }
-    }
+    sol.set(DoubleSolenoid.Value.kForward);
   }
 }
