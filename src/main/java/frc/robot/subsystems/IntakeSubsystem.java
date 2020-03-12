@@ -13,6 +13,13 @@ public class IntakeSubsystem extends SubsystemBase {
   public static CANSparkMax intakeMotor;
   public static DoubleSolenoid sol;
 
+  public static enum Piston {
+    Up,
+    Down,
+  }
+
+  public static Piston State = Piston.Up;
+
   public IntakeSubsystem() {
     intakeMotor = new CANSparkMax(Constants.kCIntake, MotorType.kBrushless);
     sol = new DoubleSolenoid(Constants.kPIntakeFwd, Constants.kPIntakeRev);

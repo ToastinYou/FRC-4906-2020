@@ -3,21 +3,19 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.OI;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import frc.robot.subsystems.IntakeSubsystem;
 
 // power cell pickup
 public class IntakeCommand extends CommandBase {  
-  public IntakeCommand(IntakeSubsystem subsystem) {
+  public IntakeCommand(IntakeSubsystem subsystem, IntakeSubsystem.Piston state) {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
+    IntakeSubsystem.State = state;
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    // default pickup to upward
-    IntakeSubsystem.sol.set(DoubleSolenoid.Value.kForward);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -31,6 +29,13 @@ public class IntakeCommand extends CommandBase {
     }
     else {
       IntakeSubsystem.intakeMotor.set(0);
+    }
+
+    if (IntakeSubsystem.State == IntakeSubsystem.Piston.Down) {
+      IntakeSubsystem.setIntakeDown();
+    }
+    else {
+      IntakeSubsystem.setIntakeUp();
     }
   }
 

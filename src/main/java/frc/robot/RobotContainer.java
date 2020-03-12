@@ -43,9 +43,9 @@ public class RobotContainer {
   private final HangPunchOutCommand m_hangPunchOutCommand = new HangPunchOutCommand(m_hangSubsystem);
   private final HangPunchInCommand m_hangPunchInCommand = new HangPunchInCommand(m_hangSubsystem);
   private final HangCommand m_hangCommand = new HangCommand(m_hangSubsystem);
-  private final IntakeCommand m_intakeCommand = new IntakeCommand(m_intakeSubsystem);
-  private final IntakeDownCommand m_intakeDownCommand = new IntakeDownCommand(m_intakeSubsystem);
-  private final IntakeUpCommand m_intakeUpCommand = new IntakeUpCommand(m_intakeSubsystem);
+  private final IntakeCommand m_intakeCommand = new IntakeCommand(m_intakeSubsystem, IntakeSubsystem.State);
+  //private final IntakeDownCommand m_intakeDownCommand = new IntakeDownCommand(m_intakeSubsystem);
+  //private final IntakeUpCommand m_intakeUpCommand = new IntakeUpCommand(m_intakeSubsystem);
   private final LimeLightAutoCommand m_limeLightAutoCommand = new LimeLightAutoCommand();
   private final ShiftCommand m_shiftCommand = new ShiftCommand(m_shiftSubsystem);
   private final ShooterCommand m_shooterCommand = new ShooterCommand(m_shooterSubsystem);
@@ -92,10 +92,10 @@ public class RobotContainer {
   private void configureButtonBindings() {
     OI.getStartButtonObject().whenReleased(new HangPunchOutCommand(m_hangSubsystem));
     OI.getBackButtonObject().whenReleased(new HangPunchInCommand(m_hangSubsystem));
-    OI.getBButtonObject().whenReleased(new IntakeDownCommand(m_intakeSubsystem));
-    OI.getAButtonObject().whenReleased(new IntakeUpCommand(m_intakeSubsystem));
+    
+    OI.getBButtonObject().whenReleased(new IntakeCommand(m_intakeSubsystem, IntakeSubsystem.Piston.Up));
+    OI.getAButtonObject().whenReleased(new IntakeCommand(m_intakeSubsystem, IntakeSubsystem.Piston.Down));
 
-    // doesn't work.
     OI.getJoystickAutomationObject().whenHeld(new LimeLightAutoCommand());
   }
 
